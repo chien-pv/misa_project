@@ -206,15 +206,16 @@ form,fieldset{
 	top:0;
 }
 .logo {
-	background:url(../assets/sprite.png) no-repeat -53px 0;
-	width:36px;
-	height:44px;
+	background:url(../assets/bn-53857.png) no-repeat -2px 0;
+	width:70px;
+	height:50px;
 	overflow:hidden;
 	text-indent:-9999px;
 	display:block;
-	margin:0 auto 23px;
+	margin:-10px auto 7px;
 	position:relative;
 	left:1px;
+	background-color: #EEEEEE	;
 }
 .logo a {
 	display:block;
