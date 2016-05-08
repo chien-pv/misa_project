@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = InventoryItem.all
   end
 
   def show
@@ -20,6 +21,12 @@ class ItemsController < ApplicationController
   end
 
   def suppliers
+    @suppliers = AccountObject.all
+  end
+
+  def input
+    @items = InventoryItem.includes(:item).all
+    @items_suppliers = Item.all
     @suppliers = AccountObject.all
   end
 end

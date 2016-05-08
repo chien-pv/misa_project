@@ -1,0 +1,90 @@
+<section class="content">
+  <div class="wrapper">
+    <div class="page-header">
+      <h1 align="center">Nhập Thông Tin</h1>
+    </div>
+    <div class="select_container">
+      <div class="items" style="width: 65%">
+      <table id="example" class="display responsive nowrap" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Mã mặt hàng</th>
+          <th>Tên mặt hàng</th>
+          <th>Khối lượng</th>
+          <th>Thể tích</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item|%>
+          <tr>
+            <td>
+              <div class="radio">
+                <label><input type="radio" name="optradio"></label>
+              </div>
+            </td>
+            <input type="hidden" value="<%=item.InventoryItemID%>"></input>
+            <td><%= item.InventoryItemCode%></td>
+            <td class="item_name"><span class="text_trunc"><%= item.InventoryItemName%></span></td>
+            <td class="item_weight"><%= item.item[0].try(:weight)%></td>
+            <td class="item_volume"><%= item.item[0].try(:volume)%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+      <div class="items" style="width: 30%">
+          <div class="panel panel-primary">
+            <div class="panel-heading"><center>Thông tin mặt hàng</center></div>
+            <div class="panel-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th colspan="2"><span class="break">Tên Mặt Hàng</span></th>
+                  </tr>
+                </thead>
+                <input type="hidden" value="" id="selected_item_id"></input>
+                <tr>
+                  <td style="width: 37%">Khối lượng:</td>
+                  <td><input type="text" class="form-control" id="weight"></td>
+                </tr>
+                <tr>
+                  <td>Thể tích:</td>
+                  <td><input type="text" class="form-control" id="volume"></td>
+                </tr>
+              </table>
+            </div>
+            <div class="panel-body-selected" style="height: 375px">
+              <center><h3>Các nhà cung cấp</h3></center>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="col-md-7">Nhà cung cấp</th>
+                    <th class="col-md-5">Mã mặt hàng (NCC)</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <%= submit_tag( "Lưu", class: "btn btn-primary btn-lg", style:"width: 250px;margin: 0px 0px 10px 100px ;", id: "chon" ) %>
+      </div>
+    </div>
+    <table id="items_suppliers" style="display: none">
+      <% @items_suppliers.each do |item_supplier|%>
+        <tr>
+          <td class="item_id"><%=item_supplier.item_id%></td>
+          <td class="supplier_id"><%=item_supplier.supplier_id%></td>
+        </tr>
+      <% end %>
+    </table>
+    <table id="suppliers" style="display: none">
+      <% @suppliers.each do |supplier|%>
+        <tr>
+          <td class="account_object_id"><%=supplier.AccountObjectID%></td>
+          <td class="account_object_code"><%=supplier.AccountObjectCode%></td>
+          <td class="account_object_name"><%=supplier.AccountObjectName%></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</section>

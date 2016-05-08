@@ -1,0 +1,31 @@
+<section class="content">
+  <div class="wrapper">
+<h1 align="center">Mặt Hàng</h1>
+<table id="item_table" class="display responsive nowrap" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Mã mặt hàng</th>
+      <th>Tên mặt hàng</th>
+      <th>Đơn vị tính</th>
+      <th>Số lượng tồn</th>
+      <th>Thể tích</th>
+      <th>Khối lượng</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @items.each do |item|%>
+      <tr>
+          <td><%= item.InventoryItemCode%></td>
+          <td><%= item.InventoryItemName%></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= button_to "Chi tiết", purchase_order_path(item.InventoryItemID), method: :get%></td>
+      </tr>
+      <%end%>
+  </tbody>
+</table>
+</div>
+</section>
