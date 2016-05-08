@@ -131,10 +131,11 @@
 </head>
 <body>
   <div id="wrapper">
-    <div id="content">
-      <div class="c1">
+    <div id="">
+      <div class="">
         <%= render 'layouts/header' %>
-        <div class=" layout_content">
+        <div style="float: left;" class="col-md-2"><%= render 'layouts/sidebar' %></div>
+        <div class="col-md-10">
           <%= yield %>
         </div>
       </div>

@@ -1,10 +1,10 @@
 <section class="content">
   <div class="wrapper">
-<%= form_tag creates_map_order_index_path do %>
-
+  <h1 align="center">Chi tiết đơn hàng</h1>
+  <%= form_tag creates_map_order_index_path do %>
   <div class="panel panel-primary">
     <div class="panel-heading">mat hang</div>
-      <div class="panel-body" style="max-height: 500px;overflow-y: scroll;">
+      <div class="panel-body" style="max-height: 300px;overflow-y: scroll;">
         <div class="row-main panel-body">
       <% @list_order.each do |detail_pus|%>
       <div class="panel-heading">
@@ -13,36 +13,44 @@
           <%= hidden_field_tag("Pu[][RefID]", detail_pus.RefID)%>
         </h3>
       </div>
-      <p>Chi Tiet Don hang</p>
         <% detail_pus.pu_order_detail.each do |detail_pu|%>
         <div class="panel panel-default login-form">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <b style="font-size:16px;">Mã hàng: <%= detail_pu.InventoryItemID%></b>
+                  <b style="font-size:16px;">Tên hàng: <%= detail_pu.Description%></b>
                   <%= hidden_field_tag("Pu[][Item][][InventoryItemID]", detail_pu.InventoryItemID)%>
                 </h3>
               </div>
               <div class="panel-body">
                 <div class="">
             <table style="width:90%;font-size:15px;">
-              <tr>
-                <td colspan="3">Tên hàng: <%= detail_pu.Description%></td>
-              </tr>
-              <tr>
-                <td>Số lượng: <%= number_field_tag 'Pu[][Item][][quantity]', detail_pu.Quantity, class: "form-control quantity"  %></td>
-                <td colspan="3">
-                  Đơn vị tính:
-                  <%= show_unit(detail_pu.UnitID) %>
+              <tr class="states">
+                <td colspan="3" style="float: left;">
+                <div style="width: 950px" class="alert alert-success">Nhập vào số lượng để tính toán thể tích khối lượng
+                  <span style="float: left;">Số lượng:</span><span class="col-md-3"> <%= number_field_tag 'Pu[][Item][][quantity]', detail_pu.Quantity, class: "form-control quantity margin_top"  %></span></div>
                 </td>
               </tr>
               <tr>
-                <td>Thể tích: <div class="volume"><%= volume(detail_pu.item.try(:volume), detail_pu.Quantity)%> </div></td>
                 <%= hidden_field_tag("volume_detail", detail_pu.item.try(:volume), {class: "volume_detail"})%>
-                <td colspan="3">Khối lượng: <div class="weight">  <%= weight(detail_pu.item.try(:weight), detail_pu.Quantity)%></div></td>
-                <%= hidden_field_tag("weight_detail", detail_pu.item.try(:weight), {class: "weight_detail"})%>
+                <td colspan="">
+                  <div style="height: 50px" class="alert alert-warning">
+                  <div style="width: 290%">
+                    <span class="float_left">Thể tích:</span> <div class="col-md-2 volume"><b><%= volume(detail_pu.item.try(:volume), detail_pu.Quantity)%></b> </div>
+                  </div>
+                  <div>
+                    <span class="float_left">Khối lượng: </span><div class="col-md-2 weight"> <b> <%= weight(detail_pu.item.try(:weight), detail_pu.Quantity)%></b></div>
+                  </div>
+                  </div>
+                </td>
+                  <%= hidden_field_tag("weight_detail", detail_pu.item.try(:weight), {class: "weight_detail"})%>
               </tr>
               <tr>
-                <td>Số lượng nhận: <%= detail_pu.QuantityReceipt%></td>
+                <td>
+                <div style="width: 280%">
+                  <span style="float: left;"> Đơn vị tính:</span><span class="col-md-2"> <%= show_unit(detail_pu.UnitID) %></span>
+                  </div>
+                  <span class="float_left">Số lượng nhận:</span><span class="col-md-2"> <%= detail_pu.QuantityReceipt%></span>
+                </td>
               </tr>
             </table>
           </div>
@@ -54,9 +62,15 @@
     </div>
   </div>
 
-<%= submit_tag "Save", class: "btn btn-primary", data: { confirm: "Are you sure?" } %>
+<%= submit_tag "Save", class: "btn btn-primary float_left", data: { confirm: "Are you sure?" } %>
 <% end %>
-The Tich: <div class="the_tich"></div>
-Khoi Luong: <div class="khoi_luong"></div>
-  </div>
+<div style="float: right; width: 250px" class="alert alert-success">
+  <div><b class="float_left"> Tổng thể tích: </b><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
+  <div class="" > <b class="float_left"> Tổng khối lượng: </b> <div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
+</div>
+<div style="float: right; width: 250px" class="alert alert-success">
+  <div><b class="float_left"> Thể tích của container: </b><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
+  <div class="" > <b class="float_left"> Khối lượng của container: </b> <div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
+</div>
+</div>
 </section>

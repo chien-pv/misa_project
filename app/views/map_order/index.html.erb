@@ -1,8 +1,8 @@
 <section class="content">
   <div class="wrapper">
-    <h1 align="center">Chọn Don hàng</h1>
-    <div class="col-md-8">
-      <h4>Multi-select</h4>
+    <h1 align="center">Danh sách đơn hàng</h1>
+    <div class="">
+      <h4>Chọn đơn hàng cần dùng</h4>
       <%= form_tag(map_order_index_path) do %>
 
         <%= select_tag 'list_orders', options_for_select(@purchase_order.collect{ |u| [u.AccountObjectName, u.RefID] }), multiple: true , id: :items%>
