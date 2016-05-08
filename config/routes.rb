@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :items do
     collection do
-      get :items_suppliers
       get :insert
       get :suppliers
+      get :input
     end
   end
 

@@ -15,7 +15,7 @@
           <%= select_tag 'list_items', options_for_select(@items.collect{ |u| [u.InventoryItemName, u.InventoryItemID] }), multiple: true , id: :items%>
       </div>
       <div class="items" style="width: 30%">
-      <%= submit_tag( "Chọn", class: "btn btn-primary btn-lg", style:"width: 250px;margin: 0px 0px 10px 32px ;", id: "chon" ) %>
+      <%= submit_tag( "Chọn", class: "btn btn-primary btn-lg", style:"width: 250px;margin: 0px 0px 10px 100px ;", id: "chon" ) %>
         <% end %>
           <div class="panel panel-primary">
             <div class="panel-heading"><center>Mặt hàng đã chọn</center></div>

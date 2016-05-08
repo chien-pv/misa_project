@@ -9,8 +9,21 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  <script>
+    <script>
+      String.prototype.trunc = String.prototype.trunc ||
+      function(n){
+          return (this.length > n) ? this.substr(0,n-1)+'...' : this;
+      };
+
       $(document).ready(function() {
+          $(".text_trunc").map(function(){
+            var text_trunc =$(this).text();
+            $(this).attr('title',text_trunc);
+            text_trunc = text_trunc.trunc(25);
+            $(this).text(text_trunc);
+          });
+          
+
           $('#example').DataTable({
             responsive: {
                   details: {
@@ -30,6 +43,12 @@
                       }
                   }
             }
+        });
+        $('#item_table').DataTable({
+            "columnDefs": [
+              { "width": "40%", "targets": 0 },
+              { "width": "10%", "targets": 1 }
+            ]
         });
         $("#items").selectr({
             title: 'Danh sách mặt hàng',
@@ -85,9 +104,32 @@
         $('.reset').click(function(){
           $('.panel-body-selected').find('p').remove();
         });
+
+        $( "input" ).on( "click", function() {
+            var selected_item_id =  $( "input:checked" ).closest('tr').children('input:hidden').val();
+
+            $('#input_item_code').children('tr').remove();
+
+           $("#selected_item_id").val(selected_item_id);
+           $('span.break').text($( "input:checked" ).closest('tr').children('td.item_name').children('span').attr('title'));
+           $('#weight').val($( "input:checked" ).closest('tr').children('td.item_weight').text());
+           $('#volume').val($( "input:checked" ).closest('tr').children('td.item_volume').text());
+
+           $("#items_suppliers").children('tbody').children('tr').map(function(){
+              if(selected_item_id == $(this).children('td.item_id').text()){
+                var selected_supplier_id = $(this).children('td.supplier_id').text();
+                $("#suppliers").children('tbody').children('tr').map(function(){
+                    if(selected_supplier_id == $(this).children('td.account_object_id').text()){
+                      $('#input_item_code').append("<tr><td>"+$(this).children('td.account_object_code').text()+"</td><td><input type='text' class='form-control'></td></tr>");
+                    }
+                });
+              }
+           });
+        });
+
       });
       
-  </script>
+    </script>
 </head>
 <body>
   <div id="wrapper">
