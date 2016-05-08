@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Home | Corlate</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <script>
+      $(document).ready(function() {
+          $('#example').DataTable({
+            responsive: {
+                  details: {
+                      renderer: function ( api, rowIdx, columns ) {
+                          var data = $.map( columns, function ( col, i ) {
+                              return col.hidden ?
+                                  '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
+                                      '<td>'+col.title+':'+'</td> '+
+                                      '<td>'+col.data+'</td>'+
+                                  '</tr>' :
+                                  '';
+                          } ).join('');
+       
+                          return data ?
+                              $('<table/>').append( data ) :
+                              false;
+                      }
+                  }
+            }
+        });
+        $("#items").selectr({
+            title: 'Danh sách mặt hàng',
+            placeholder: 'Tên mặt hàng',
+        });
+        $('.selected_item').map(function() {
+            var si = this.value;
+            $("#items").find("option").each(function(){
+              if(si == $(this).val()){
+                var x = $(this).text();
+                $('.list-group-item').each(function(){
+                  if(x == $(this).find('.option-name').text()){
+                    $(this).addClass("selected");
+                    $('.panel-body-selected').append("<p id="+si+">- "+x+"</p>");
+                    return false;
+                  }
+                });
+              }
+            });
+        });
+        $('.add-remove').click(function() {
+            var x = $(this).siblings(".option-name").text();
+              if($(this).parent('.list-group-item').hasClass("selected")){
+                $("#items").find("option").each(function(){
+                  if(x == $(this).text()){
+                    $("#"+$(this).val()).remove();
+                  }
+                });
+                
+              }
+              else{
+                $("#items").find("option").each(function(){
+                  if(x == $(this).text()){
+                    $('.panel-body-selected').append("<p id="+$(this).val()+">- "+x+"</p>");
+                    return false;
+                  }
+                });
+              }
+            
+        });
+        $('.option-name').click(function(){
+            $('.panel-body-selected').find('p').remove();
+            var x = $(this).text();
+            if((!$(this).parent('.list-group-item').hasClass("selected")) || ($(this).parent('.list-group-item').siblings().hasClass("selected"))){
+                $("#items").find("option").each(function(){
+                  if(x == $(this).text()){
+                    $('.panel-body-selected').append("<p id="+$(this).val()+">- "+x+"</p>");
+                    return false;
+                  }
+                });
+            }
+        });
+        $('.reset').click(function(){
+          $('.panel-body-selected').find('p').remove();
+        });
+      });
+      
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="content">
+      <div class="c1">
+        <%= render 'layouts/header' %>
+        <div class=" layout_content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
+  </div>
+</body>
+</html>

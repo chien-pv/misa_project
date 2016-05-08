@@ -1,0 +1,31 @@
+<section class="content">
+  <div class="wrapper">
+<h1 align="center">Mua Hang</h1>
+<table id="example" class="display responsive nowrap" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Tình trạng</th>
+      <th>Ngày đơn hàng</th>
+      <th>Số đơn hàng</th>
+      <th>Ngày giao hàng</th>
+      <th>Nhà cung cấp</th>
+      <th>Số tiền</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @purchase_orders.each do |purchase_order|%>
+      <tr>
+          <td><%= purchase_order.Status%></td>
+          <td><%= purchase_order.RefDate.strftime("%d-%m-%Y")%></td>
+          <td><%= purchase_order.RefNo%></td>
+          <td><%= purchase_order.ReceiveDate.strftime("%d-%m-%Y")%></td>
+          <td><%= purchase_order.AccountObjectName%></td>
+          <td><%= purchase_order.TotalAmount%></td>
+          <td><%= button_to "Chi tiết", purchase_order_path(purchase_order.RefID), method: :get%></td>
+      </tr>
+      <%end%>
+  </tbody>
+</table>
+</div>
+</section>

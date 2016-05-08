@@ -1,0 +1,36 @@
+$ ->
+  total_volume = 0
+  total_weight = 0
+  $('.volume').each (index, value) ->
+    volume_dt = parseInt($(this).text())
+    total_volume += volume_dt
+  $(".the_tich").text(total_volume)
+
+  $('.weight').each (index, value) ->
+    weight_dt = parseInt($(this).text())
+    total_weight += weight_dt
+  $(".khoi_luong").text(total_weight)
+  
+  $('.quantity').keyup ->
+    quantity = $(this).val()
+    row = $(this).closest('tr')
+    volume = row.next().find(".volume")
+    volume_detail  = row.next().find(".volume_detail")
+    val_volume = volume_detail.val()
+    volume.text(val_volume*quantity)
+    weight = row.next().find(".weight")
+    weight_detail  = row.next().find(".weight_detail")
+    val_weight = weight_detail.val()
+    weight.text(val_weight*quantity)
+
+    total_volume = 0
+    total_weight = 0
+    $('.volume').each (index, value) ->
+      volume_dt = parseInt($(this).text())
+      total_volume += volume_dt
+    $(".the_tich").text(total_volume)
+
+    $('.weight').each (index, value) ->
+      weight_dt = parseInt($(this).text())
+      total_weight += weight_dt
+    $(".khoi_luong").text(total_weight)

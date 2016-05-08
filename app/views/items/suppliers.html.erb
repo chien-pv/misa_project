@@ -1,0 +1,31 @@
+<section class="content">
+  <div class="wrapper">
+    <div class="page-header">
+      <h1 align="center">Nhà Cung Cấp</h1>
+    </div>
+    <table id="example" class="display responsive nowrap" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Mã NCC</th>
+          <th>Tên NCC</th>
+          <th>Địa chỉ</th>
+          <th>Số điện thoại</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @suppliers.each do |supplier|%>
+          <tr>
+            <td><%= supplier.AccountObjectCode%></td>
+            <td><span class="text_trunc"><%= supplier.AccountObjectName%></span></td>
+            <td><span class="text_trunc"><%= supplier.Address%></span></td>
+            <td><%= supplier.Tel%></td>
+            <td><%= supplier.EmailAddress%></td>
+            <td><%= button_to "Chi tiết", item_path(supplier.AccountObjectID), method: :get%></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</section>

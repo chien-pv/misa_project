@@ -1,0 +1,6 @@
+.selectr .option-name {
+	height: 8%;
+	padding: 10px 15px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden; }

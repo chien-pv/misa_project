@@ -1,0 +1,64 @@
+<section class="content">
+  <div class="wrapper">
+  <%= form_tag show_map_index_path, :name => "switch_car",:method => :get do %>
+    <div class="field">
+        <label>Car Name:</label>
+        <%= select_tag "list_map", options_for_select(@list_map, selected: params[:list_map]), { class: "form-control", :onchange => "this.form.submit()"}%>
+    </div>
+
+    <% end %>
+  
+  <br>
+<%= form_tag creates_map_order_index_path do %>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">mat hang</div>
+      <div class="panel-body" style="max-height: 500px;overflow-y: scroll;">
+        <div class="row-main panel-body">
+      <% @list_order.each do |detail_pus|%>
+      <div class="panel-heading">
+        <h2 class="panel-title">
+          <b style="font-size:16px;">Don Hang: <%= detail_pus.purchase_order[0].try(:AccountObjectName)%></b>
+        </h3>
+      </div>
+      <p>Chi Tiet Don hang</p>
+        <% detail_pus.map_item.each do |detail_pu|%>
+        <div class="panel panel-default login-form">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <b style="font-size:16px;">Mã hàng: <%= detail_pu.pu_order_detail[0].InventoryItemID%></b>
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="">
+            <table style="width:90%;font-size:15px;">
+              <tr>
+                <td colspan="3">Tên hàng: <%= detail_pu.pu_order_detail[0].Description%></td>
+              </tr>
+              <tr>
+                <td>Số lượng: <%= number_field_tag 'Pu[][Item][][quantity]', detail_pu.quantity, class: "form-control quantity"  %></td>
+                <td colspan="3">
+                  Đơn vị tính:
+                  <%= show_unit(detail_pu.pu_order_detail[0].UnitID) %>
+                </td>
+              </tr>
+              <tr>
+                <td>Thể tích: <div class="volume"><%= volume(detail_pu.pu_order_detail[0].item.try(:volume), detail_pu.quantity)%> </div></td>
+                <%= hidden_field_tag("volume_detail", detail_pu.pu_order_detail[0].item.try(:volume), {class: "volume_detail"})%>
+                <td colspan="3">Khối lượng: <div class="weight">  <%= weight(detail_pu.pu_order_detail[0].item.try(:weight), detail_pu.quantity)%></div></td>
+                <%= hidden_field_tag("weight_detail", detail_pu.pu_order_detail[0].item.try(:weight), {class: "weight_detail"})%>
+              </tr>
+            </table>
+          </div>
+              </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+The Tich: <div class="the_tich"></div>
+Khoi Luong: <div class="khoi_luong"></div>
+  </div>
+</section>

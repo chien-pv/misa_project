@@ -1,0 +1,23 @@
+.main{
+	min-height: 100px;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #cf9;
+}
+.row-main{
+	min-height: 50px;
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #EEEEEE;
+}
+
+.text-b{
+	font-weight: bold
+}
+.row-main-solid{
+	border-bottom: solid 1px #FFFFFF;
+	padding-bottom: 5px;
+	padding-top: 50px;
+}

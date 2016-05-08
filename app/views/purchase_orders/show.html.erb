@@ -1,0 +1,95 @@
+  <section class="content">
+    <div class="wrapper">
+      <div class="panel panel-default login-form">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">
+              <i class="glyphicon glyphicon-glass"><b style="font-size:18px;"> Đơn hàng: <%=@purchase_order[0].RefNo %></b></i>
+            </h3>
+          </div>
+          <div class="main panel-body">
+            <div class="main-show">
+                <table style="width:90%;font-size:18px;">
+                  <tr>
+                    <td colspan="3">Tình trạng: <font style="color:red"><%=@purchase_order[0].Status %></font></td>
+                  </tr>
+                  <tr>
+                    <td>Nhà cung cấp: <%=@purchase_order[0].AccountObjectName %></td>
+                    <td>Địa chỉ: <%=@purchase_order[0].AccountObjectAddress %></td>
+                    <td>SDT: <%=@purchase_order[0].AccountObjectTaxCode %></td>
+                    <td>Email: <%= %></td>
+                  </tr>
+                  <tr>
+                    <td>Ngày đơn hàng: <%=@purchase_order[0].RefDate.strftime("%d-%m-%Y") %></td>
+                    <td colspan="3">Ngày giao hàng: <%=@purchase_order[0].ReceiveDate.strftime("%d-%m-%Y") %></td>
+                  </tr>
+                  <tr>
+                    <td>Diễn giải: <%=@purchase_order[0].JournalMemo %></td>
+                    <td colspan="3">Số tiền: <%=@purchase_order[0].TotalAmount %></td>
+                  </tr>
+                  <tr>
+                    <td>Tổng khối lượng: xxx</td>
+                    <td colspan="3">Tổng thể tích: xxx</td>
+                  </tr>
+                </table>
+                
+              </div>
+          </div>
+      </div>
+
+
+<div class="panel panel-default login-form">
+  <div class="row-main panel-body">
+    <% @detail_pus.each do |detail_pu|%>
+
+    <div class="panel panel-default login-form">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <b style="font-size:16px;">Mã hàng: <%= detail_pu.InventoryItemID%></b>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <div class="row-main-solid">
+        <table style="width:90%;font-size:15px;">
+          <tr>
+            <td colspan="3">Tên hàng: <%= detail_pu.Description%></td>
+          </tr>
+          <tr>
+            <td>Số lượng: <%= detail_pu.Quantity%></td>
+            <td colspan="3">
+              Đơn vị tính:
+              <%= select("post", "person_id", @Units.collect {|p| [ p.UnitName, p.UnitID ] }, { selected: detail_pu.UnitID}, class: "form-control")%>
+            </td>
+          </tr>
+          <tr>
+            <td>Số lượng nhận: <input type="text" value="<%= detail_pu.QuantityReceipt%>", class= "form-control"/></td>
+            <td>Đơn giá: <input type="text" value="<%= detail_pu.UnitPrice%>" , class= "form-control"/></td>
+            <td colspan="2">Thành tiền: <%= detail_pu.Amount%></td>
+          </tr>
+          <tr>
+            <td>Tỉ lệ chiết khấu: <input type="text" value="<%= detail_pu.DiscountRate%>", class= "form-control"/></td>
+            <td>Tiền chiết khấu: <input type="text" value="<%= detail_pu.DiscountAmount%>", class= "form-control pull-left"/></td>
+            <td>Tỉ lệ GTGT: <input type="text" value="<%= detail_pu.VATRate%>", class= "form-control"/></td>
+            <td>Tiền GTGT: <input type="text" value="<%= detail_pu.VATAmount%>", class= "form-control"/></td>
+          </tr>
+          <tr>
+            <td>Thể tích: xxx</td>
+            <td colspan="3">Khối lượng: xxx</td>
+          </tr>
+        </table>
+      </div>
+          </div>
+      </div>
+      <% end %>
+  </div>
+</div>
+      
+  
+    <center style="margin-top:10px;">
+    <%= link_to "Quay lại", purchase_orders_path, class: "btn btn-primary", onclick: "location"%>
+
+  <br>
+  <br>
+  <br>
+    <%= button_to "Get Data", get_data_purchase_orders_path(@purchase_order[0].RefID), method: :get,  class: "btn btn-primary", onclick: "location"%>
+</div>
+</section>
