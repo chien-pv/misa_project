@@ -108,6 +108,8 @@
         $( "input" ).on( "click", function() {
             var selected_item_id =  $( "input:checked" ).closest('tr').children('input:hidden').val();
 
+            $('#input_item_code').children('tr').remove();
+
            $("#selected_item_id").val(selected_item_id);
            $('span.break').text($( "input:checked" ).closest('tr').children('td.item_name').children('span').attr('title'));
            $('#weight').val($( "input:checked" ).closest('tr').children('td.item_weight').text());
@@ -118,7 +120,7 @@
                 var selected_supplier_id = $(this).children('td.supplier_id').text();
                 $("#suppliers").children('tbody').children('tr').map(function(){
                     if(selected_supplier_id == $(this).children('td.account_object_id').text()){
-                      $('.panel-body-selected').append("<p id="+$(this).children('td.account_object_id').text()+">- "+$(this).children('td.account_object_code').text()+"</p>");
+                      $('#input_item_code').append("<tr><td>"+$(this).children('td.account_object_code').text()+"</td><td><input type='text' class='form-control'></td></tr>");
                     }
                 });
               }

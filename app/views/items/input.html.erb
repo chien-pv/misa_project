@@ -54,7 +54,7 @@
                 </tr>
               </table>
             </div>
-            <div class="panel-body-selected" style="height: 375px">
+            <div class="panel-body-selected" style="height: 345px">
               <center><h3>Các nhà cung cấp</h3></center>
               <table class="table table-striped">
                 <thead>
@@ -63,10 +63,12 @@
                     <th class="col-md-5">Mã mặt hàng (NCC)</th>
                   </tr>
                 </thead>
+                <tbody id="input_item_code">
+                </tbody>
               </table>
             </div>
           </div>
-          <%= submit_tag( "Lưu", class: "btn btn-primary btn-lg", style:"width: 250px;margin: 0px 0px 10px 100px ;", id: "chon" ) %>
+          <%= submit_tag( "Lưu", class: "btn btn-primary btn-lg", style:"width: 250px;margin: 0px 0px 10px 10% ;", id: "chon" ) %>
       </div>
     </div>
     <table id="items_suppliers" style="display: none">
