@@ -34,41 +34,43 @@
     </table>
     </div>
       <div class="items" style="width: 30%">
-          <div class="panel panel-primary">
-            <div class="panel-heading"><center>Thông tin mặt hàng</center></div>
-            <div class="panel-body">
-              <table class="table">
-                <thead>
+        <%= form_tag(add_information_items_path, method: :get) do %>
+            <div class="panel panel-primary">
+              <div class="panel-heading"><center>Thông tin mặt hàng</center></div>
+              <div class="panel-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th colspan="2"><span class="break">Tên Mặt Hàng</span></th>
+                    </tr>
+                  </thead>
+                  <%= hidden_field_tag 'selected_item_id' %>
                   <tr>
-                    <th colspan="2"><span class="break">Tên Mặt Hàng</span></th>
+                    <td style="width: 37%">Khối lượng:</td>
+                    <td><%= text_field_tag 'weight', nil, class: 'form-control', disabled: true%></td>
                   </tr>
-                </thead>
-                <input type="hidden" value="" id="selected_item_id"></input>
-                <tr>
-                  <td style="width: 37%">Khối lượng:</td>
-                  <td><input type="text" class="form-control" id="weight"></td>
-                </tr>
-                <tr>
-                  <td>Thể tích:</td>
-                  <td><input type="text" class="form-control" id="volume"></td>
-                </tr>
-              </table>
-            </div>
-            <div class="panel-body-selected" style="height: 345px">
-              <center><h3>Các nhà cung cấp</h3></center>
-              <table class="table table-striped">
-                <thead>
                   <tr>
-                    <th class="col-md-7">Nhà cung cấp</th>
-                    <th class="col-md-5">Mã mặt hàng (NCC)</th>
+                    <td>Thể tích:</td>
+                    <td><%= text_field_tag 'volume', nil, class: 'form-control', disabled: true%></td>
                   </tr>
-                </thead>
-                <tbody id="input_item_code">
-                </tbody>
-              </table>
+                </table>
+              </div>
+              <div class="panel-body-selected" style="height: 345px">
+                <center><h3>Các nhà cung cấp</h3></center>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th class="col-md-7">Nhà cung cấp</th>
+                      <th class="col-md-5">Mã mặt hàng (NCC)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="input_item_code">
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-          <%= submit_tag( "Lưu", class: "btn btn-primary btn-lg", style:"width: 250px;margin: 0px 0px 10px 10% ;", id: "chon" ) %>
+            <%= submit_tag( "Lưu", class: "btn btn-primary btn-lg", style:"width: 250px;margin: 0px 0px 10px 10% ;", id: "chon" ) %>
+        <% end %>
       </div>
     </div>
     <table id="items_suppliers" style="display: none">
@@ -76,6 +78,7 @@
         <tr>
           <td class="item_id"><%=item_supplier.item_id%></td>
           <td class="supplier_id"><%=item_supplier.supplier_id%></td>
+          <td class="supplier_item_code"><%=item_supplier.supplier_item_code%></td>
         </tr>
       <% end %>
     </table>
