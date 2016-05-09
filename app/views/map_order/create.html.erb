@@ -9,11 +9,11 @@
       <% @list_order.each do |detail_pus|%>
       <div class="panel-heading">
         <h2 class="panel-title">
-          <b style="font-size:16px;">Don Hang: <%= detail_pus.AccountObjectName%></b>
+          <b style="font-size:16px;">Đơn Hàng: <%= detail_pus.AccountObjectName%></b>
           <%= hidden_field_tag("Pu[][RefID]", detail_pus.RefID)%>
         </h3>
       </div>
-        <% detail_pus.pu_order_detail.each do |detail_pu|%>
+        <% detail_pus.pu_order_detail.includes(:item).each do |detail_pu|%>
         <div class="panel panel-default login-form">
               <div class="panel-heading">
                 <h3 class="panel-title">
@@ -64,13 +64,19 @@
 
 <%= submit_tag "Save", class: "btn btn-primary float_left", data: { confirm: "Are you sure?" } %>
 <% end %>
-<div style="float: right; width: 250px" class="alert alert-success">
+<div style="float: right; width: 25%; height: 80px" class="alert alert-success">
   <div><b class="float_left"> Tổng thể tích: </b><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
   <div class="" > <b class="float_left"> Tổng khối lượng: </b> <div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
 </div>
-<div style="float: right; width: 250px" class="alert alert-success">
-  <div><b class="float_left"> Thể tích của container: </b><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
-  <div class="" > <b class="float_left"> Khối lượng của container: </b> <div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
+<div style="float: right; width: 25%; height: 80px" class="alert alert-success">
+  <div><b class="float_left"> Thể tích của container: </b><div style="text-align: center; font-size: 17px" class="thetich_container">2700</div></div>
+  <div class="khoiluong_container" > <b class="float_left"> Khối lượng của container: </b> <div style="text-align: center; font-size: 17px"  class=""></div>1700</div>
+</div>
+
+<div style="float: right; width: 44%; height: 80px" class="alert alert-success map">
+  <div class="map_thetich map_tt_kl" ></div>
+  <div class="map_khoiluong map_tt_kl" ></div>
+</div>
 </div>
 </div>
 </section>

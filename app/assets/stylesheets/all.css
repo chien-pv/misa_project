@@ -17,6 +17,9 @@ a {
 	color:#8a8a8a;
 	text-decoration:underline;
 }
+.map_tt_kl{
+	text-align: center; font-size: 20px; font-weight: bold;
+}
 a:hover {text-decoration:none;}
 input,
 textarea,

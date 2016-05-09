@@ -16,7 +16,7 @@
       };
 
       $(document).ready(function() {
-          $(".text_trunc").map(function(){
+          $(".text_trunc").each(function(){
             var text_trunc =$(this).text();
             $(this).attr('title',text_trunc);
             text_trunc = text_trunc.trunc(25);
@@ -44,21 +44,16 @@
                   }
             }
         });
-        $('#item_table').DataTable({
-            "columnDefs": [
-              { "width": "40%", "targets": 0 },
-              { "width": "10%", "targets": 1 }
-            ]
-        });
         $("#items").selectr({
             title: 'Danh sách mặt hàng',
             placeholder: 'Tên mặt hàng',
         });
-        $('.selected_item').map(function() {
+        $('.selected_item').each(function() {
             var si = this.value;
             $("#items").find("option").each(function(){
               if(si == $(this).val()){
                 var x = $(this).text();
+                $(this).attr('selected','selected');
                 $('.list-group-item').each(function(){
                   if(x == $(this).find('.option-name').text()){
                     $(this).addClass("selected");
@@ -117,11 +112,12 @@
            $('#weight').val($( "input:checked" ).closest('tr').children('td.item_weight').text());
            $('#volume').val($( "input:checked" ).closest('tr').children('td.item_volume').text());
 
-           $("#items_suppliers").children('tbody').children('tr').map(function(){
+
+           $("#items_suppliers").children('tbody').children('tr').each(function(){
               var supplier_item_code = $(this).children('td.supplier_item_code').text();
               if(selected_item_id == $(this).children('td.item_id').text()){
                 var selected_supplier_id = $(this).children('td.supplier_id').text();
-                $("#suppliers").children('tbody').children('tr').map(function(){
+                $("#suppliers").children('tbody').children('tr').each(function(){
                     if(selected_supplier_id == $(this).children('td.account_object_id').text()){
                       $('#input_item_code').append("<tr><td><input type='hidden' name='supplier_list[][supplier_id]' value='"+$(this).children('td.account_object_id').text()+"'/>"+$(this).children('td.account_object_code').text()+"</td><td><input type='text' name='supplier_list[][itemid]' class='form-control' value='"+supplier_item_code+"'></td></tr>");
                     }
