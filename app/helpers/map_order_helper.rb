@@ -1,7 +1,7 @@
 module MapOrderHelper
 
   def show_unit(unit_id)
-    Unit.where(UnitID: unit_id)[0].try(:UnitName)
+    @list_unit.find{|u| u.UnitID == unit_id }.try(:UnitName)
   end
 
   def volume(volume, quantity)

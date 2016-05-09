@@ -6,6 +6,7 @@ class MapOrderController < ApplicationController
   def create
     @list_order = PurchaseOrder.includes(:pu_order_detail).where(RefID: params[:list_orders])
     @list_container  = ContainerType.all
+    @list_unit = Unit.all
   end
 
   def creates
