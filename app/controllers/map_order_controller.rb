@@ -5,10 +5,10 @@ class MapOrderController < ApplicationController
 
   def create
     @list_order = PurchaseOrder.includes(:pu_order_detail).where(RefID: params[:list_orders])
+    @list_container  = ContainerType.all
   end
 
   def creates
-    # binding.pry
     map_id = Time.now.strftime("%Y%d%m%H%M%S")
     params[:Pu].each do |pu|
       MapPurchase.create(map_id: map_id , RefID: pu[:RefID], date_map: Time.now.strftime("%Y-%d-%m %H:%M:%S %Z"))
