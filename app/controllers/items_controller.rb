@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def insert
+    binding.pry
     list_items = InventoryItem.where(InventoryItemID: params[:list_items]) #lisst truyen len
     list_supplier= Item.where(supplier_id: params[:supplier_id]) #list mat hang theo nha cung cap da co
     if list_supplier.blank?
