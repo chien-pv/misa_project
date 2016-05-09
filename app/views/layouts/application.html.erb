@@ -100,7 +100,9 @@
           $('.panel-body-selected').find('p').remove();
         });
 
-        $( "input" ).on( "click", function() {
+        $( "input:radio" ).on( "click", function() {
+            $('#weight').prop("disabled", false);
+            $('#volume').prop("disabled", false);
             var selected_item_id =  $( "input:checked" ).closest('tr').children('input:hidden').val();
 
             $('#input_item_code').children('tr').remove();
@@ -110,12 +112,14 @@
            $('#weight').val($( "input:checked" ).closest('tr').children('td.item_weight').text());
            $('#volume').val($( "input:checked" ).closest('tr').children('td.item_volume').text());
 
+
            $("#items_suppliers").children('tbody').children('tr').each(function(){
+              var supplier_item_code = $(this).children('td.supplier_item_code').text();
               if(selected_item_id == $(this).children('td.item_id').text()){
                 var selected_supplier_id = $(this).children('td.supplier_id').text();
                 $("#suppliers").children('tbody').children('tr').each(function(){
                     if(selected_supplier_id == $(this).children('td.account_object_id').text()){
-                      $('#input_item_code').append("<tr><td>"+$(this).children('td.account_object_code').text()+"</td><td><input type='text' class='form-control'></td></tr>");
+                      $('#input_item_code').append("<tr><td><input type='hidden' name='supplier_list[][supplier_id]' value='"+$(this).children('td.account_object_id').text()+"'/>"+$(this).children('td.account_object_code').text()+"</td><td><input type='text' name='supplier_list[][itemid]' class='form-control' value='"+supplier_item_code+"'></td></tr>");
                     }
                 });
               }

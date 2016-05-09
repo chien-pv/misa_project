@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :insert
       get :suppliers
       get :input
+      get :add_information
     end
   end
 

@@ -62,4 +62,24 @@ class ItemsController < ApplicationController
     @items_suppliers = Item.all
     @suppliers = AccountObject.all
   end
+
+  def add_information
+    #binding.pry
+    supplier_list = params[:supplier_list]
+    if Item.where(item_id: params[:selected_item_id]).blank?
+        params_create = {item_id: params[:selected_item_id],
+                         weight: params[:weight],
+                         volume: params[:volume]}
+        Item.create(params_create)
+    else
+      if supplier_list.blank?
+        Item.find_by(item_id: params[:selected_item_id]).update(weight: params[:weight],volume: params[:volume])
+      else
+        supplier_list.each do |supplier|
+          Item.find_by(item_id: params[:selected_item_id], supplier_id: supplier[:supplier_id]).update(weight: params[:weight],volume: params[:volume],supplier_item_code: supplier[:itemid])
+        end
+      end
+    end
+    redirect_to input_items_path
+  end
 end
