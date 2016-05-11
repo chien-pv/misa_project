@@ -20,7 +20,7 @@
           <td><%= purchase_order.RefDate.strftime("%d-%m-%Y")%></td>
           <td><%= purchase_order.RefNo%></td>
           <td><%= purchase_order.ReceiveDate.strftime("%d-%m-%Y")%></td>
-          <td><%= purchase_order.AccountObjectName%></td>
+          <td><span class="text_trunc"><%= purchase_order.AccountObjectName%></span></td>
           <td><%= purchase_order.TotalAmount%></td>
           <td><%= button_to "Chi tiết", purchase_order_path(purchase_order.RefID), method: :get%></td>
       </tr>
