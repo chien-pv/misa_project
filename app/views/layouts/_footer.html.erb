@@ -1,0 +1,80 @@
+<script>
+      String.prototype.trunc = String.prototype.trunc ||
+      function(n){
+          return (this.length > n) ? this.substr(0,n-1)+'...' : this;
+      };
+
+      $(document).ready(function() {
+          $(".text_trunc").each(function(){
+            var text_trunc =$(this).text();
+            $(this).attr('title',text_trunc);
+            text_trunc = text_trunc.trunc(25);
+            $(this).text(text_trunc);
+          });
+          
+
+          $('#example').DataTable({
+            responsive: {
+                  details: {
+                      renderer: function ( api, rowIdx, columns ) {
+                          var data = $.map( columns, function ( col, i ) {
+                              return col.hidden ?
+                                  '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
+                                      '<td>'+col.title+':'+'</td> '+
+                                      '<td>'+col.data+'</td>'+
+                                  '</tr>' :
+                                  '';
+                          } ).join('');
+       
+                          return data ?
+                              $('<table/>').append( data ) :
+                              false;
+                      }
+                  }
+            }
+        });
+        $("#items").selectr({
+            title: 'Danh sách mặt hàng',
+            placeholder: 'Tên mặt hàng',
+        });
+        
+        $('.add-remove').click(function() {
+          var x = $(this).siblings(".option-name").text();
+            if($(this).parent('.list-group-item').hasClass("selected")){
+              $("#items").find("option").each(function(){
+                if(x == $(this).text()){
+                  $("#"+$(this).val()).remove();
+                }
+              });
+            }
+            else{
+              $("#items").find("option").each(function(){
+                if(x == $(this).text()){
+                  $('.panel-body-selected').append("<p id="+$(this).val()+">- "+x+"</p>");
+                  return false;
+                }
+              });
+            }
+        });
+
+        $('.option-name').click(function(){
+          $('.panel-body-selected').find('p').remove();
+          var x = $(this).text();
+          if((!$(this).parent('.list-group-item').hasClass("selected")) || ($(this).parent('.list-group-item').siblings().hasClass("selected"))){
+              $("#items").find("option").each(function(){
+                if(x == $(this).text()){
+                  $('.panel-body-selected').append("<p id="+$(this).val()+">- "+x+"</p>");
+                  return false;
+                }
+              });
+          }
+        });
+        $('.reset').click(function(){
+          $('.panel-body-selected').find('p').remove();
+        });
+
+        
+
+      });
+      
+</script>

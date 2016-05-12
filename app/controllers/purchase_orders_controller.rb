@@ -5,7 +5,7 @@ class PurchaseOrdersController < ApplicationController
   end
 
   def show
-    @Units = Unit.all
+    @list_unit = Unit.all
     @purchase_order =  PurchaseOrder.where(RefID: params[:id])
     @detail_pus = @purchase_order[0].pu_order_detail
   end
