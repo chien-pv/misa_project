@@ -7,6 +7,8 @@ class ItemsController < ApplicationController
     @supplier = AccountObject.where(AccountObjectID: params[:id])
     @items = InventoryItem.all
     @selected_items = @supplier[0].item
+    # binding.pry
+    gon.selected_items = @selected_items
   end
 
   def insert
@@ -59,8 +61,9 @@ class ItemsController < ApplicationController
 
   def input
     @items = InventoryItem.includes(:item).all
-    @items_suppliers = Item.all
-    @suppliers = AccountObject.all
+    items_suppliers = Item.all 
+    gon.items_suppliers = items_suppliers
+    gon.account_object = AccountObject.all
   end
 
   def add_information

@@ -1,7 +1,7 @@
 <section class="content">
   <div class="wrapper">
     <div class="page-header">
-      <h1 align="center">Nhập Thông Tin</h1>
+      <h3 align="center">NHẬP THÔNG TIN HÀNG HÓA</h3>
     </div>
     <div class="select_container">
       <div class="items" style="width: 65%">
@@ -69,27 +69,9 @@
                 </table>
               </div>
             </div>
-            <%= submit_tag( "Lưu", class: "btn btn-primary btn-lg", style:"width: 250px;margin: 0px 0px 10px 10% ;", id: "chon" ) %>
+            <%= submit_tag( "Lưu", class: "btn btn-primary btn-lg", style:"width: 100%;", id: "chon" ) %>
         <% end %>
       </div>
     </div>
-    <table id="items_suppliers" style="display: none">
-      <% @items_suppliers.each do |item_supplier|%>
-        <tr>
-          <td class="item_id"><%=item_supplier.item_id%></td>
-          <td class="supplier_id"><%=item_supplier.supplier_id%></td>
-          <td class="supplier_item_code"><%=item_supplier.supplier_item_code%></td>
-        </tr>
-      <% end %>
-    </table>
-    <table id="suppliers" style="display: none">
-      <% @suppliers.each do |supplier|%>
-        <tr>
-          <td class="account_object_id"><%=supplier.AccountObjectID%></td>
-          <td class="account_object_code"><%=supplier.AccountObjectCode%></td>
-          <td class="account_object_name"><%=supplier.AccountObjectName%></td>
-        </tr>
-      <% end %>
-    </table>
   </div>
 </section>
