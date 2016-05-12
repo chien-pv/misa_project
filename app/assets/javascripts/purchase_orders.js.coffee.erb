@@ -1,0 +1,12 @@
+$ ->
+  total_volume = 0
+  total_weight = 0
+  $('.volume-details').each (index, value) ->
+    volume_dt = parseInt($(this).text())
+    total_volume += volume_dt
+  $(".volume-total").text(total_volume)
+
+  $('.weight-details').each (index, value) ->
+    weight_dt = parseInt($(this).text())
+    total_weight += weight_dt
+  $(".weight-total").text(total_weight)

@@ -10,25 +10,48 @@
             <div class="main-show">
                 <table style="width:90%;font-size:18px;">
                   <tr>
-                    <td colspan="3">Tình trạng: <font style="color:red"><%=@purchase_order[0].Status %></font></td>
+                    <th colspan="" class="col-md-4">Tình trạng:</th>
+                    <td style="color:red"><%=@purchase_order[0].Status %></td>
                   </tr>
                   <tr>
-                    <td>Nhà cung cấp: <%=@purchase_order[0].AccountObjectName %></td>
-                    <td>Địa chỉ: <%=@purchase_order[0].AccountObjectAddress %></td>
-                    <td>SDT: <%=@purchase_order[0].AccountObjectTaxCode %></td>
-                    <td>Email: <%= %></td>
+                    <th class="col-md-4">Nhà cung cấp: </th>
+                    <td> <%=@purchase_order[0].AccountObjectName %></td>
+                  <tr>
+                    <th class="col-md-4">Địa chỉ: </th>
+                    <td><%=@purchase_order[0].AccountObjectAddress %></td>
                   </tr>
                   <tr>
-                    <td>Ngày đơn hàng: <%=@purchase_order[0].RefDate.strftime("%d-%m-%Y") %></td>
-                    <td colspan="3">Ngày giao hàng: <%=@purchase_order[0].ReceiveDate.strftime("%d-%m-%Y") %></td>
+                    <th class="col-md-4">SDT:</th>
+                    <td> <%=@purchase_order[0].AccountObjectTaxCode %></td>
                   </tr>
                   <tr>
-                    <td>Diễn giải: <%=@purchase_order[0].JournalMemo %></td>
-                    <td colspan="3">Số tiền: <%=@purchase_order[0].TotalAmount %></td>
+                    <th class="col-md-4">Email:</th>
+                    <td> <%= %></td>
+                  </tr>
                   </tr>
                   <tr>
-                    <td>Tổng khối lượng: xxx</td>
-                    <td colspan="3">Tổng thể tích: xxx</td>
+                    <th class="col-md-4">Ngày đơn hàng:</th>
+                    <td> <%=@purchase_order[0].RefDate.strftime("%d-%m-%Y") %></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4" colspan="">Ngày giao hàng: </th>
+                    <td><%=@purchase_order[0].ReceiveDate.strftime("%d-%m-%Y") %></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4">Diễn giải: </th>
+                    <td><%=@purchase_order[0].JournalMemo %></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4" colspan="">Số tiền:</th>
+                    <td> <%=@purchase_order[0].TotalAmount %></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4">Tổng khối lượng:</th>
+                    <td> <div class="volume-total"></div></td>
+                  </tr>
+                  <tr>
+                    <th  class="col-md-4" colspan="">Tổng thể tích: </th>
+                    <td><div class="weight-total"></div></td>
                   </tr>
                 </table>
                 
@@ -42,38 +65,35 @@
     <% @detail_pus.each do |detail_pu|%>
 
     <div class="panel panel-default login-form">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <b style="font-size:16px;">Mã hàng: <%= detail_pu.InventoryItemID%></b>
-            </h3>
-          </div>
-          <div class="panel-body">
-            <div class="row-main-solid">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <b style="font-size:16px;">Tên hàng: <%= detail_pu.Description%></b>
+        </h3>
+      </div>
+    <div class="panel-body">
+      <div class="row-main">
         <table style="width:90%;font-size:15px;">
           <tr>
-            <td colspan="3">Tên hàng: <%= detail_pu.Description%></td>
-          </tr>
-          <tr>
-            <td>Số lượng: <%= detail_pu.Quantity%></td>
-            <td colspan="3">
-              Đơn vị tính:
-              <%= select("post", "person_id", @Units.collect {|p| [ p.UnitName, p.UnitID ] }, { selected: detail_pu.UnitID}, class: "form-control")%>
+            <td class="col-md-4"  ><b> Số lượng: </b> <%= detail_pu.Quantity%></td>
+            <td class="col-md-4" colspan="">
+              <b> Đơn vị tính: </b><%= show_unit(detail_pu.UnitID) %>
             </td>
+            <td></td>
           </tr>
           <tr>
-            <td>Số lượng nhận: <input type="text" value="<%= detail_pu.QuantityReceipt%>", class= "form-control"/></td>
-            <td>Đơn giá: <input type="text" value="<%= detail_pu.UnitPrice%>" , class= "form-control"/></td>
-            <td colspan="2">Thành tiền: <%= detail_pu.Amount%></td>
+            <td class="col-md-4"><b> Số lượng nhận: </b><%= detail_pu.QuantityReceipt%></td>
+            <td class="col-md-4"><b> Đơn giá: </b> <%= detail_pu.UnitPrice%></td>
+            <td class="col-md-4" colspan=""><b> Thành tiền: </b><%= detail_pu.Amount%></td>
           </tr>
           <tr>
-            <td>Tỉ lệ chiết khấu: <input type="text" value="<%= detail_pu.DiscountRate%>", class= "form-control"/></td>
-            <td>Tiền chiết khấu: <input type="text" value="<%= detail_pu.DiscountAmount%>", class= "form-control pull-left"/></td>
-            <td>Tỉ lệ GTGT: <input type="text" value="<%= detail_pu.VATRate%>", class= "form-control"/></td>
-            <td>Tiền GTGT: <input type="text" value="<%= detail_pu.VATAmount%>", class= "form-control"/></td>
+            <td class="col-md-4"><b> Tỉ lệ chiết khấu:</b> <%= detail_pu.DiscountRate%></td>
+            <td class="col-md-4"><b> Tiền chiết khấu: </b><%= detail_pu.DiscountAmount%></td>
+            <td class="col-md-4"><b> Tỉ lệ GTGT:</b> <%= detail_pu.VATRate%></td>
           </tr>
           <tr>
-            <td>Thể tích: xxx</td>
-            <td colspan="3">Khối lượng: xxx</td>
+            <td class="col-md-4"><b> Tiền GTGT: </b> <%= detail_pu.VATAmount%></td>
+            <td class="col-md-4"><b style="float: left;"> Thể tích:</b> <div class="volume-details"><%= volume(detail_pu.item.try(:volume), detail_pu.Quantity)%></div></td>
+            <td class="col-md-4" colspan=""> <b style="float: left;"> Khối lượng: </b><div class="weight-details"><%= weight(detail_pu.item.try(:weight), detail_pu.Quantity)%></div></td>
           </tr>
         </table>
       </div>
