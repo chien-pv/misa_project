@@ -73,23 +73,5 @@
         <% end %>
       </div>
     </div>
-    <table id="items_suppliers" style="display: none">
-      <% @items_suppliers.each do |item_supplier|%>
-        <tr>
-          <td class="item_id"><%=item_supplier.item_id%></td>
-          <td class="supplier_id"><%=item_supplier.supplier_id%></td>
-          <td class="supplier_item_code"><%=item_supplier.supplier_item_code%></td>
-        </tr>
-      <% end %>
-    </table>
-    <table id="suppliers" style="display: none">
-      <% @suppliers.each do |supplier|%>
-        <tr>
-          <td class="account_object_id"><%=supplier.AccountObjectID%></td>
-          <td class="account_object_code"><%=supplier.AccountObjectCode%></td>
-          <td class="account_object_name"><%=supplier.AccountObjectName%></td>
-        </tr>
-      <% end %>
-    </table>
   </div>
 </section>
