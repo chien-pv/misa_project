@@ -1,7 +1,44 @@
 <section class="content">
   <div class="wrapper">
     <div class="page-header">
-      <h1 align="center">Chọn Mặt Hàng</h1>
+      <h3 align="center">THÔNG TIN NHÀ CUNG CẤP</h3>
+    </div>
+    <div class="panel panel-default login-form">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">
+              <i class="glyphicon glyphicon-phone-alt"><b style="font-size:18px;"> Nhà cung cấp: <%=@supplier[0].AccountObjectName %></b></i>
+            </h3>
+          </div>
+          <div class="main panel-body">
+            <div class="main-show">
+                <table style="width:90%;font-size:18px;">
+                  <tr>
+                    <td><b>Mã:</b> <%=@supplier[0].AccountObjectCode %></td>
+                    <td colspan="2"><b>Mã số thuế:</b> <%=@supplier[0].CompanyTaxCode %></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><b>Địa chỉ:</b> <%=@supplier[0].Address %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Số cố định:</b> <%=@supplier[0].Tel %></td>
+                    <td><b>Số di động:</b> <%=@supplier[0].Mobile %></td>
+                    <td><b>Fax:</b> <%=@supplier[0].Fax %></td>
+                  </tr>
+                  <tr>
+                    <td><b>Email:</b> <%=@supplier[0].EmailAddress %></td>
+                    <td colspan="2"><b>Website:</b> <%=@supplier[0].Website %></td>
+                  </tr>
+                  <tr>
+                    <td><b>TK ngân hàng:</b> <%=@supplier[0].BankAccount %></td>
+                    <td colspan="2"><b>Tên ngân hàng:</b> <%=@supplier[0].BankName %></td>
+                  </tr>
+                </table>
+                
+              </div>
+          </div>
+    </div>
+    <div class="page-header">
+      <h3 align="center">CHỌN MẶT HÀNG CHO NHÀ CUNG CẤP</h3>
     </div>
     <div class="select_container">
       <div class="items" style="width: 65%">
@@ -10,13 +47,13 @@
           <%= select_tag 'list_items[]', options_for_select(@items.collect{ |u| [u.InventoryItemName, u.InventoryItemID] }), multiple: true , id: :items%>
       </div>
       <div class="items" style="width: 30%">
-      <%= submit_tag( "Chọn", class: "btn btn-primary btn-lg", style:"width: 250px;margin: 0px 0px 10px 10% ;", id: "chon" ) %>
-        <% end %>
           <div class="panel panel-primary">
             <div class="panel-heading"><center>Mặt hàng đã chọn</center></div>
             <div class="panel-body-selected" id="test">
             </div>
           </div>
+          <%= submit_tag( "Chọn", class: "btn btn-primary btn-lg", style:"width: 100%;margin-top:-14px;", id: "chon" ) %>
+        <% end %>
       </div>
     </div>
   </div>
