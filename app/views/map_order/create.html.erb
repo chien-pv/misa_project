@@ -13,11 +13,11 @@
           <%= hidden_field_tag("Pu[][RefID]", detail_pus.RefID)%>
         </h3>
       </div>
-        <% detail_pus.pu_order_detail.includes(:item).each do |detail_pu|%>
+        <% detail_pus.pu_order_detail.includes(:item, :inventory_item).each do |detail_pu|%>
         <div class="panel panel-default login-form">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <b style="font-size:16px;">Tên hàng: <%= detail_pu.Description%></b>
+                  <b style="font-size:16px;">Tên hàng: <%= detail_pu.inventory_item.InventoryItemCode%> - <%= detail_pu.inventory_item.InventoryItemName%></b>
                   <%= hidden_field_tag("Pu[][Item][][InventoryItemID]", detail_pu.InventoryItemID)%>
                 </h3>
               </div>

@@ -26,7 +26,7 @@
           <div class="panel panel-default login-form">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <b style="font-size:16px;">Tên hàng: <%= detail_pu.pu_order_detail[0].Description%></b>
+                  <b style="font-size:16px;">Tên hàng: <%= detail_pu.inventory_item[0].InventoryItemName%></b>
                   <%= hidden_field_tag("Pu[][Item][][InventoryItemID]", detail_pu.pu_order_detail[0].InventoryItemID)%>
                 </h3>
               </div>
