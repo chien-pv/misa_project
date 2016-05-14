@@ -12,16 +12,16 @@
 <%= form_tag creates_map_order_index_path do %>
 
   <div class="panel panel-primary">
-    <div class="panel-heading">mat hang</div>
+    <div class="panel-heading">Chi tiết gom container</div>
       <div class="panel-body" style="max-height: 500px;overflow-y: scroll;">
         <div class="row-main panel-body">
       <% @list_order.each do |detail_pus|%>
       <div class="panel-heading">
         <h2 class="panel-title">
-          <b style="font-size:16px;">Don Hang: <%= detail_pus.purchase_order[0].try(:AccountObjectName)%></b>
+          <b style="font-size:16px;">Đơn hàng: <%= detail_pus.purchase_order[0].try(:RefNo)%></b>
         </h3>
       </div>
-      <p>Chi Tiet Don hang</p>
+      <p>Chi tiết đơn hàng</p>
         <% detail_pus.map_item.each do |detail_pu|%>
           <div class="panel panel-default login-form">
               <div class="panel-heading">

@@ -1,15 +1,17 @@
 <section class="content">
   <div class="wrapper">
-  <h1 align="center">Chi tiết đơn hàng</h1>
+  <div class="page-header">
+    <h3 align="center">CHI TIẾT ĐƠN HÀNG</h3>
+  </div>
   <%= form_tag creates_map_order_index_path do %>
   <div class="panel panel-primary">
-    <div class="panel-heading">mat hang</div>
+    <div class="panel-heading">Chi tiết đơn hàng</div>
       <div class="panel-body" style="max-height: 300px;overflow-y: scroll;">
         <div class="row-main panel-body">
       <% @list_order.each do |detail_pus|%>
       <div class="panel-heading">
         <h2 class="panel-title">
-          <b style="font-size:16px;">Đơn Hàng: <%= detail_pus.AccountObjectName%></b>
+          <b style="font-size:16px;">Đơn Hàng: <%= detail_pus.RefNo%></b>
           <%= hidden_field_tag("Pu[][RefID]", detail_pus.RefID)%>
         </h3>
       </div>

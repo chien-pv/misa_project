@@ -1,0 +1,20 @@
+.header{
+  
+}
+.body_content{
+  overflow:auto;
+}
+.footer{
+  background-image: url("./foot1.jpg");
+  //background-repeat: no-repeat;
+  //background-attachment: fixed;
+  //background-position: center;
+  //background-size: cover; 
+  min-height: 100px;
+  background-size: cover;
+}
+font{
+  font-family: Josefin Slab;
+  font-weight: bold;
+  font-size: 110%;
+}

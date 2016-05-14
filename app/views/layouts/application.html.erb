@@ -12,16 +12,18 @@
 </head>
 <body>
   <div id="wrapper">
-    <div id="">
-      <div class="">
-        <%= render 'layouts/header' %>
+    <div class="header">
+      <%= render 'layouts/header' %>
+    </div>
+    <div class="body_content">
         <div style="float: left;" class="col-md-2"><%= render 'layouts/sidebar' %></div>
         <div class="col-md-10">
           <%= yield %>
         </div>
-      </div>
     </div>
-    <%= render 'layouts/footer' %>
+    <div class="footer">
+      <%= render 'layouts/footer' %>
+    </div>
   </div>
 </body>
 </html>

@@ -37,6 +37,10 @@
             title: 'Danh sách mặt hàng',
             placeholder: 'Tên mặt hàng',
         });
+        $("#purchase_orders").selectr({
+            title: 'Danh sách đơn hàng',
+            placeholder: 'Mã đơn hàng',
+        });
         
         $('.add-remove').click(function() {
           var x = $(this).siblings(".option-name").text();
@@ -73,8 +77,37 @@
           $('.panel-body-selected').find('p').remove();
         });
 
-        
-
       });
       
 </script>
+<div class="footer">
+   <div class="row">
+    <div class="col-md-6" style="padding-left: 54px">
+      <font style="font-size: 120%;color:red;">© Graduated Project</font>
+    </div>
+    <div class="col-md-6" align="right" style="padding-right: 83px">
+      <font style="color:red;">Thanks to:</font>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6" style="padding-left: 88px">
+      <font>Design by:</font>
+    </div>
+    <div class="col-md-6" align="right" style="padding-right: 95px">
+      <font>tungns</font>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6" style="padding-left: 74px">
+      <font>phamvanbk11</font>
+    </div>
+    <div class="col-md-6" align="right" style="padding-right: 96px">
+      <font>quoctv</font>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" style="padding-left: 91px">
+      <font>tankietkt</font>
+    </div>
+  </div>
+</div>
