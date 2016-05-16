@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  root 'home#index'
+
   resources :show_map
 
   resources :items do
