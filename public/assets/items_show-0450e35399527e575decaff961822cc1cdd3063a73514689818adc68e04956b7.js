@@ -1,0 +1,1 @@
+$(document).ready(function(){$.each(gon.selected_items,function(e,t){var i=t.item_id;$("#items").find("option").each(function(){if(i==$(this).val()){var e=$(this).text();$(this).attr("selected","selected"),$(".panel-body-selected").append("<p id="+i+">- "+e+"</p>")}})})});

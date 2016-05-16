@@ -1,0 +1,1 @@
+(function(){$(function(){var t,e;return t=0,e=0,$(".volume-details").each(function(){var e;return e=parseInt($(this).text()),t+=e}),$(".volume-total").text(t),$(".weight-details").each(function(){var t;return t=parseInt($(this).text()),e+=t}),$(".weight-total").text(e)})}).call(this);

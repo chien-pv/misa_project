@@ -1,0 +1,18 @@
+@import 'all_pages',
+	'chitiet',
+	'content',
+	'dataTables.bootstrap',
+	'dataTables.jqueryui.min',
+	'home',
+	'ie',
+	'inventory_items',
+	'items',
+	'items_suppliers',
+	'map_order',
+	'purchase_orders',
+	'reset',
+	'selectr',
+	'sidebar',
+	'test';
+
+
