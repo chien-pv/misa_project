@@ -80,4 +80,7 @@ Rails.application.configure do
   # config.assets.compile = true
   # config.assets.precompile =  ['*.js', '*.css', '*.css.erb']
   # Rails.application.config.assets.precompile += %w( *.js ^[^_]*.css *.css.erb )
+  config.assets.compile = ['*.js', '*.css']
+
+  config.active_support.deprecation = :silence
 end
