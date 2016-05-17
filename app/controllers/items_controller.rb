@@ -56,14 +56,14 @@ class ItemsController < ApplicationController
   end
 
   def suppliers
-    @suppliers = AccountObject.all
+    @suppliers = AccountObject.where(isVendor: 1)
   end
 
   def input
     @items = InventoryItem.includes(:item).all
     items_suppliers = Item.all 
     gon.items_suppliers = items_suppliers
-    gon.account_object = AccountObject.all
+    gon.account_object = AccountObject.where(isVendor: 1)
   end
 
   def add_information
