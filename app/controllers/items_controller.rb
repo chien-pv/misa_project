@@ -86,3 +86,4 @@ class ItemsController < ApplicationController
     redirect_to input_items_path
   end
 end
+
