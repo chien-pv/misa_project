@@ -112,3 +112,4 @@ Rails.application.configure do
 
   config.active_support.deprecation = :silence
 end
+
