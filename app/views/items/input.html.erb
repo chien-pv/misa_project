@@ -17,17 +17,18 @@
       </thead>
       <tbody>
         <% @items.each do |item|%>
+        <%binding.pry%>
           <tr>
             <td>
               <div class="radio">
                 <label><input type="radio" name="optradio"></label>
               </div>
             </td>
-            <input type="hidden" value="<%=item.InventoryItemID%>"></input>
-            <td><%= item.InventoryItemCode%></td>
-            <td class="item_name"><span class="text_trunc"><%= item.InventoryItemName%></span></td>
-            <td class="item_weight"><%= item.item[0].try(:weight)%></td>
-            <td class="item_volume"><%= item.item[0].try(:volume)%></td>
+            <input type="hidden" value="<%=item[0].inventory_item.InventoryItemID%>"></input>
+            <td><%= item[0].inventory_item.InventoryItemCode%></td>
+            <td class="item_name"><span class="text_trunc"><%= item[0].inventory_item.InventoryItemName%></span></td>
+            <td class="item_weight"><%= item[0].item[0].try(:weight)%></td>
+            <td class="item_volume"><%= item[0].item[0].try(:volume)%></td>
           </tr>
         <% end %>
       </tbody>
@@ -46,11 +47,11 @@
                   </thead>
                   <%= hidden_field_tag 'selected_item_id' %>
                   <tr>
-                    <td style="width: 37%">Khối lượng:</td>
+                    <td style="width: 43%">Khối lượng (kg):</td>
                     <td><%= text_field_tag 'weight', nil, class: 'form-control', disabled: true%></td>
                   </tr>
                   <tr>
-                    <td>Thể tích:</td>
+                    <td>Thể tích (m<sup>3</sup>):</td>
                     <td><%= text_field_tag 'volume', nil, class: 'form-control', disabled: true%></td>
                   </tr>
                 </table>
