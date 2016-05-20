@@ -1,5 +1,10 @@
 class ItemsController < ApplicationController
   authorize_resource :class => false
+
+  def load_page
+    redirect_to input_items_path
+  end
+
   def index
     @items = InventoryItem.all
   end
