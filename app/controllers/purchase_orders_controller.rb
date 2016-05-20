@@ -1,5 +1,5 @@
 class PurchaseOrdersController < ApplicationController
-  
+  authorize_resource :class => false
   def index
     @purchase_orders =  PurchaseOrder.all
   end

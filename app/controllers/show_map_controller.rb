@@ -1,4 +1,5 @@
 class ShowMapController < ApplicationController
+  authorize_resource :class => false
   def index
     @list_unit = Unit.all
     @list_map = MapPurchase.all.map(&:map_id).uniq

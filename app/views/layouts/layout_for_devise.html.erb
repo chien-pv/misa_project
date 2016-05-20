@@ -15,16 +15,7 @@
     <div class="header">
       <%= render 'layouts/header' %>
     </div>
-    <div class="body_content" style="min-height: 457px;">
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-      <%  if (current_user.has_role? :admin) || (current_user.has_role? :moderator)%>
-        <div style="float: left;" class="col-md-2"><%= render 'layouts/sidebar' %></div>
-      <%end%>
+    <div class="body_content">
         <div class="col-md-10">
           <%= yield %>
         </div>

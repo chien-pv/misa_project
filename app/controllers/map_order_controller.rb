@@ -1,4 +1,5 @@
 class MapOrderController < ApplicationController
+  authorize_resource :class => false
   def index
     @purchase_order = PurchaseOrder.where(status: [0, 1]).order(:RefDate)
   end

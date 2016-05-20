@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  authorize_resource :class => false
   def index
     @items = InventoryItem.all
   end
