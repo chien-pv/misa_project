@@ -13,7 +13,6 @@ Rails.application.routes.draw do
       get :suppliers
       get :input
       get :add_information
-      get :load_page
     end
   end
 
