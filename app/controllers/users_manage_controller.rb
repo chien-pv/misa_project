@@ -9,7 +9,6 @@ class UsersManageController < ApplicationController
   end
 
   def create
-    binding.pry
     user =  User.create(user_params)
     user.add_role "moderator" if user.present?
     redirect_to users_manage_index_path
