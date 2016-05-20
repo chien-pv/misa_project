@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :users_manage
+
+  devise_for :users, :controllers => {registrations: 'registrations'}
   root 'home#index'
 
   resources :show_map
