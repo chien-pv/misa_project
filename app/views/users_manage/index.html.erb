@@ -1,0 +1,21 @@
+
+<h2>Danh sách user </h2>
+<div class="pull-right"> <%=link_to "Create", new_users_manage_path(), class:"btn btn-primary " %></div>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user|%>
+      <tr>
+        <td><%= user.name%></td>
+        <td><%= user.email%></td>
+        <td><%= user.roles.first.try(:name)%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

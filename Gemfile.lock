@@ -41,6 +41,7 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.3.1)
       execjs
+    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
@@ -49,6 +50,7 @@ GEM
     bower-rails (0.10.0)
     builder (3.2.2)
     byebug (8.2.5)
+    cancancan (1.12.0)
     capistrano (3.3.5)
       capistrano-stats (~> 1.1.0)
       i18n
@@ -71,6 +73,13 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
+    devise (3.5.6)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.6.0)
     globalid (0.3.6)
@@ -107,6 +116,7 @@ GEM
     net-ssh (3.0.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    orm_adapter (0.5.0)
     paranoia (2.1.5)
       activerecord (~> 4.0)
     pg (0.18.4)
@@ -151,6 +161,9 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     request_store (1.3.1)
+    responders (2.1.1)
+      railties (>= 4.2.0, < 5.1)
+    rolify (4.1.1)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -189,6 +202,8 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    warden (1.2.6)
+      rack (>= 1.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -203,8 +218,10 @@ DEPENDENCIES
   bootstrap-sass
   bower-rails (~> 0.10.0)
   byebug
+  cancancan
   capistrano-rails
   coffee-rails (~> 4.1.0)
+  devise
   gon (~> 6.0, >= 6.0.1)
   jbuilder (~> 2.0)
   jquery-rails
@@ -213,6 +230,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   rails (= 4.2.5)
+  rolify
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
