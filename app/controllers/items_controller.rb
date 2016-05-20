@@ -60,7 +60,12 @@ class ItemsController < ApplicationController
   end
 
   def input
-    @items = InventoryItem.includes(:item).all
+    # puorders = PuOrderDetail.all.map(&:InventoryItemID).uniq
+    # @items = InventoryItem.where(InventoryItemID: puorders)
+    @items = PuOrderDetail.all.includes(:inventory_item,:item).group_by(&:InventoryItemID)
+     
+    #@items = pu_order_detail.includes(:inventory_item)
+    #binding.pry
     items_suppliers = Item.all 
     gon.items_suppliers = items_suppliers
     gon.account_object = AccountObject.where(isVendor: 1)
