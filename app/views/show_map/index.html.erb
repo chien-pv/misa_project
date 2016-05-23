@@ -1,14 +1,28 @@
 <section class="content">
   <div class="wrapper">
+<div class="pull-right" style="margin-bottom: 20px;">
+  <%= form_tag show_map_index_path,:method => :get do %>
+      <div class="col-md-12" style="margin-top: 20px;">
+         <p class="float_left" style="color: red;"> <b>Nhập Tên Tìm Kiếm: &nbsp</b></p>
+         <div class="float_left">
+        <%= text_field_tag("name","", required: true , class: "form-control ")%>
+        </div>
+      <%= submit_tag "Search", class: "btn btn-primary float_left" %>
+     </div>
+    <% end %>
+</div>
+  <br>  
+
   <%= form_tag show_map_index_path, :name => "switch_car",:method => :get do %>
-    <div class="field">
-        <label>Car Name:</label>
+    <div class="field col-md-4">
+        <label>Chọn Tên Để Show</label>
         <%= select_tag "list_map", options_for_select(@list_map, selected: params[:list_map]), { class: "form-control", :onchange => "this.form.submit()"}%>
     </div>
 
     <% end %>
-  
-  <br>
+   <br>
+
+<div style="margin-top: 20px;">
 <%= form_tag creates_map_order_index_path do %>
 
   <div class="panel panel-primary">
@@ -19,7 +33,7 @@
       <div class="panel-heading">
         <h2 class="panel-title">
           <b style="font-size:16px;">Đơn hàng: <%= detail_pus.purchase_order[0].try(:RefNo)%></b>
-        </h3>
+        </h2>
       </div>
       <p>Chi tiết đơn hàng</p>
         <% detail_pus.map_item.each do |detail_pu|%>
@@ -71,6 +85,7 @@
     </div>
   </div>
 <% end %>
+</div>
 <div style="float: right; width: 250px" class="alert alert-success">
   <div><b class="float_left"> Tổng thể tích: </b><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
   <div class="" > <b class="float_left"> Tổng khối lượng: </b> <div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
