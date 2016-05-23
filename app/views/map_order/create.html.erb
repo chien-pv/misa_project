@@ -63,21 +63,28 @@
       </div>
     </div>
   </div>
-
+  <div class=" col-md-12">
+     <p class="float_left" style="color: red;"> <b>Nhập Tên để lưu</b></p>
+     <div class=" col-md-4 float_left">
+    <%= text_field_tag("Pu[][name]","", required: true , class: "form-control ")%>
+    </div>
 <%= submit_tag "Save", class: "btn btn-primary float_left", data: { confirm: "Are you sure?" } %>
+ </div>
 <% end %>
-<div style="float: right; width: 25%; height: 80px" class="alert alert-success">
-  <div><b class="float_left"> Tổng thể tích: </b><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
-  <div class="" > <b class="float_left"> Tổng khối lượng: </b> <div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
-</div>
-<div style="float: right; width: 25%; height: 80px" class="alert alert-success">
-  <div><b class="float_left"> Thể tích của container: </b><div style="text-align: center; font-size: 17px" class="thetich_container">2700</div></div>
-  <div  > <b class="float_left"> Khối lượng của container: </b> <div style="text-align: center; font-size: 17px"  class=""></div><div class="khoiluong_container">1700</div></div>
-</div>
+<div class="col-md-12" style="margin-top: 20px;">
+  <div style="float: right; width: 25%; height: 80px" class="alert alert-success">
+    <div><b class="float_left"> Tổng thể tích: </b><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
+    <div class="" > <b class="float_left"> Tổng khối lượng: </b> <div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
+  </div>
+  <div style="float: right; width: 25%; height: 80px" class="alert alert-success">
+    <div><b class="float_left"> Thể tích của container: </b><div style="text-align: center; font-size: 17px" class="thetich_container">2700</div></div>
+    <div  > <b class="float_left"> Khối lượng của container: </b> <div style="text-align: center; font-size: 17px"  class=""></div><div class="khoiluong_container">1700</div></div>
+  </div>
 
-<div style="float: right; width: 44%; height: 80px" class="alert alert-success map">
-  <div class="map_thetich map_tt_kl" ></div>
-  <div class="map_khoiluong map_tt_kl" ></div>
+  <div style="float: right; width: 44%; height: 80px" class="alert alert-success map">
+    <div class="map_thetich map_tt_kl" ></div>
+    <div class="map_khoiluong map_tt_kl" ></div>
+  </div>
 </div>
 </div>
 </div>
