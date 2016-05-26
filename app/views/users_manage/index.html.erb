@@ -7,6 +7,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +16,11 @@
         <td><%= user.name%></td>
         <td><%= user.email%></td>
         <td><%= user.roles.first.try(:name)%></td>
+        <td>
+        <%  unless user.has_role? :admin %>
+          <%= link_to "Edit", edit_users_manage_path(user) %> &nbsp  | &nbsp <%= link_to "Xóa", users_manage_path(user), data: { confirm: "Are you sure?" }, method: :delete %>
+        <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>
