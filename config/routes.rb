@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
   
+  # get 'export/index'
+  resources :export do
+    collection do
+      get :export_file
+    end
+  end
+
   resources :users_manage
 
   devise_for :users, :controllers => {registrations: 'registrations'}
   root 'home#index'
 
   resources :show_map
+    
 
   resources :items do
     collection do

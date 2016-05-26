@@ -17,6 +17,8 @@ gem 'gon', '~> 6.0', '>= 6.0.1'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
+gem 'axlsx', '~> 2.0'
+gem "axlsx_rails"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
