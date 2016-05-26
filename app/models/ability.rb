@@ -18,7 +18,11 @@ class Ability
       can :manage, User, user_id: user.id
       can :create, User
       can :manage, :map_order
-      can :read, :all
+      can :manage, :show_map
+      can :manage, :item
+      can :manage, :inventory_item
+      can :manage, :purchase_order
+      # can :read, :all
     else
        # Guest user aka. anonymous
       # can :read, :all
