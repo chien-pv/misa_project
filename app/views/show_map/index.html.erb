@@ -95,4 +95,5 @@
   <div class="khoiluong_container" > <b class="float_left"> Khối lượng của container: </b> <div style="text-align: center; font-size: 17px"  class=""></div>1700</div>
 </div>
   </div>
+  <center style="margin-top: 10px; margin-bottom: 15px;"><%= link_to "Export", export_index_path(format: :xlsx, params: {list_map: params[:list_map] }), class: "btn btn-primary", onclick: "location"%></center>
 </section>
