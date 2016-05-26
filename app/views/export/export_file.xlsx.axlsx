@@ -1,0 +1,9 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Payments") do |sheet|
+    sheet.add_row ["Mã hàng", "Tên hàng","Nhà cung câp","Đơn vị tính ", "Số lượng", ]
+    @list_order.each do |detail_pus|
+      detail_pus.map_item.each do |order|
+          sheet.add_row [order.inventory_item[0].InventoryItemCode, order.inventory_item[0].InventoryItemName, detail_pus.purchase_order[0].try(:AccountObjectName),show_unit(order.pu_order_detail[0].UnitID), order.quantity]
+      end
+    end
+end
