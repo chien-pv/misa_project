@@ -16,7 +16,10 @@
       <%= link_to "Gom đơn hàng vào container", map_order_index_path%>
     </li>
     <li>
-      <%= link_to "Nhập khối lượng thể tích cho mặt hàng", input_items_path%>
+      <%= form_tag(input_items_path, method: :get) do %>
+        <%= submit_tag("Nhập khối lượng thể tích cho mặt hàng",class: "btn btn-link sidebar_input")%>
+      <% end %>
+      
     </li>
     <li>
       <%= link_to "Danh sách nhà cung cấp ", suppliers_items_path%>

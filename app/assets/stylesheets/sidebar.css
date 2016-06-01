@@ -78,11 +78,30 @@ body {
 }
 
 .profile-usermenu ul li a {
-  color: #93a3b5;
+  color:  #0044cc;
   font-size: 14px;
   font-weight: 400;
 }
-
+.sidebar_input{
+  color:  #0044cc !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  white-space: normal !important;
+  text-align: left !important;
+  width: 184px !important;
+  height: 60px !important;
+  text-decoration: none !important;
+}
+.sidebar_input:hover{
+  background-color: #fafcfd !important;
+  color: #5b9bd1 !important;
+}
+.sidebar_input:focus{
+  outline:0 !important;
+}
+.sidebar_input:active{
+  background-color: #f1f1f1 !important;
+}
 .profile-usermenu ul li a i {
   margin-right: 8px;
   font-size: 14px;
