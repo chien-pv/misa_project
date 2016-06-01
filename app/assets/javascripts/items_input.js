@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  
   $( "input:radio" ).on( "click", function() {
     $('#weight').prop("disabled", false);
     $('#volume').prop("disabled", false);
