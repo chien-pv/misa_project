@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  root 'home#index'
   # get 'export/index'
   resources :export do
     collection do
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   resources :users_manage
 
   devise_for :users, :controllers => {registrations: 'registrations'}
-  root 'home#index'
 
   resources :show_map
     
@@ -29,8 +29,6 @@ Rails.application.routes.draw do
     post :creates
   end
  end
-
-  get 'purchase_orders/index'
 
   resources :inventory_items
   resources :purchase_orders do
