@@ -12,9 +12,13 @@
   //background-size: cover; 
   min-height: 100px;
   background-size: cover;
+  padding-top: 5px;
 }
 font{
   font-family: Josefin Slab;
   font-weight: bold;
-  font-size: 110%;
+  font-size: 100%;
+}
+.row{
+  min-height: 15px;
 }

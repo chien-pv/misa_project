@@ -8,7 +8,7 @@ class ExportController < ApplicationController
       @list_order = MapPurchase.where( map_id: params[:list_map])
     end
     respond_to do |format| 
-      format.xlsx {render xlsx: 'export_file',filename: "export_file.xlsx"}
+      format.xlsx {render xlsx: 'export_file',filename: "#{@list_order[0].map_id}.xlsx"}
     end
   end
 end
