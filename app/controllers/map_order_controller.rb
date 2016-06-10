@@ -12,7 +12,6 @@ class MapOrderController < ApplicationController
 
   def creates
     params[:Pu].each do |pu|
-      binding.pry
       MapPurchase.create(map_id: params[:name] , RefID: pu[:RefID], date_map: Time.now.strftime("%Y-%d-%m %H:%M:%S %Z"))
       pu[:Item].each do |item|
         MapItem.create(ItemID: item[:InventoryItemID], map_purchase_id: MapPurchase.find_by(RefID: pu[:RefID], map_id: params[:name]).id, quantity: item[:quantity]  )
