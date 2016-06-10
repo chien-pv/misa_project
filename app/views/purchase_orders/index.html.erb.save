@@ -19,9 +19,10 @@
   <% @purchase_orders.each do |purchase_order|%>
       <tr>
           <td><%= purchase_order.Status%></td>
-          <td><%= purchase_order.RefDate.strftime("%d-%m-%Y")%></td>
+          <td><%= purchase_order.try(:RefDate).strftime("%d-%m-%Y")%></td><td><%= purchase_order.try(:RefDate).strftime("%d-%m-%Y")%></td>
+
           <td><%= purchase_order.RefNo%></td>
-          <td><%= purchase_order.ReceiveDate.strftime("%d-%m-%Y") if !(purchase_order.ReceiveDate.nil?)%></td>
+          <td><%= purchase_order.ReceiveDate.strftime("%d-%m-%Y")%></td>
           <td><span class="text_trunc"><%= purchase_order.AccountObjectName%></span></td>
           <td><%= purchase_order.TotalAmount%></td>
           <td><%= button_to "Chi tiết", purchase_order_path(purchase_order.RefID), method: :get%></td>

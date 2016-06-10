@@ -1,8 +1,8 @@
 
 db_misa:
   adapter: sqlserver
-  host: 222.255.167.106         # Used if dataserver is blank.
-  port: 54321              # Used if host present. Default is 1433.
+  host: 222.255.167.25         # Used if dataserver is blank.
+  port: 23456              # Used if host present. Default is 1433.
   database: CARINY-HNI
-  username: vanchien
-  password: Abc12345
+  username: gomcon
+  password: Cariny111hamnghi
