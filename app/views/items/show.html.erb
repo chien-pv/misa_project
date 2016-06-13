@@ -44,7 +44,7 @@
       <div class="items" style="width: 65%">
         <%= form_tag(insert_items_path, method: :get) do %>
           <%= hidden_field_tag 'supplier_id',  @supplier[0].AccountObjectID %>
-          <%= select_tag 'list_items[]', options_for_select(@items.collect{ |u| [u.InventoryItemName, u.InventoryItemID] }), multiple: true , id: :items%>
+          <%= select_tag 'list_items[]', options_for_select(@items.collect{ |u| [u.InventoryItemCode, u.InventoryItemID] }), multiple: true , id: :items%>
       </div>
       <div class="items" style="width: 30%">
           <div class="panel panel-primary">
