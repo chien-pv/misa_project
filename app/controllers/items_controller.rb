@@ -37,6 +37,7 @@ class ItemsController < ApplicationController
                                supplier_id: params[:supplier_id]}
               item_search = Item.find_by(item_id: item.InventoryItemID, supplier_id: nil)
               if item_search.present?
+                # binding.pry
                 item_search.update(supplier_id: params[:supplier_id] )
               else
                 Item.create(params_create)
@@ -60,17 +61,15 @@ class ItemsController < ApplicationController
   end
 
   def input
-    # puorders = PuOrderDetail.all.map(&:InventoryItemID).uniq
-    # @items = InventoryItem.where(InventoryItemID: puorders)
     @items = PuOrderDetail.all.includes(:inventory_item,:item).group_by(&:InventoryItemID)
-     
-    #@items = pu_order_detail.includes(:inventory_item)
+    @list_unit = Unit.all
     items_suppliers = Item.all 
     gon.items_suppliers = items_suppliers
     gon.account_object = AccountObject.where(isVendor: 1)
   end
 
   def add_information
+    #binding.pry
     supplier_list = params[:supplier_list]
     if Item.where(item_id: params[:selected_item_id]).blank?
         params_create = {item_id: params[:selected_item_id],
