@@ -11,6 +11,29 @@
  * file per style scope.
  *
  *= require_tree .
- *= require bootstrap/dist/css/bootstrap
  *= require_self
+ */
+
+ /**
+ * Plugins, libraries, common
+ *= require "bootstrap/dist/css/bootstrap.min.css"
+ *= require "components-font-awesome/css/font-awesome.css"
+ *= require "animate.css/animate.min.css"
+ *= require "bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css"
+ *= require "checkbox3/dist/checkbox3.min.css"
+ *= require "select2/dist/css/select2.min.css"
+ *= require "pnotify/dist/pnotify.css"
+ *= require "pnotify/dist/pnotify.brighttheme.css"
+ *= require "pnotify/dist/pnotify.buttons.css"
+ *= require "bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.css"
+*/
+
+/**
+ * Theme
+ *= require "flat-admin-bootstrap-templates/css/style.css"
+ *= require "flat-admin-bootstrap-templates/css/themes/flat-green.css"
+*/
+
+/**
+ * Layout specified
  */

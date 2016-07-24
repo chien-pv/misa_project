@@ -1,0 +1,28 @@
+{
+  "name": "misa_project",
+  "homepage": "https://github.com/phamvanbk11/misa_project",
+  "authors": [
+    "VanChien <phamvanbk11@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "components-font-awesome": "~4.6.3",
+    "flat-admin-bootstrap-templates": "~2.1.2",
+    "jquery": "~2.2.4",
+    "pnotify": "~3.0.0",
+    "summernote": "~0.8.1",
+    "bootstrap3-wysihtml5-bower": "^0.3.3"
+  }
+}

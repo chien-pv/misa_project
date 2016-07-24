@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    link rel="shortcut icon" href="/favicon.ico"
+    title GomCon
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet" type="text/css" /
+    link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css" /
+  body.flat-green
+    .app-container.expanded
+      .row.content-container
+        = render 'layouts/navbar'
+        = render 'layouts/sidebar'
+        .container-fluid
+          .side-body
+            = yield
+        = render 'layouts/footer'
