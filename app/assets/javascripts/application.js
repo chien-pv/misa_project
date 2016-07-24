@@ -13,5 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap/dist/js/bootstrap
 //= require_tree .
+
+/* Plugins, libraries */
+//= require jquery/dist/jquery.js
+//= require bootstrap/dist/js/bootstrap.js
+//= require bootstrap-switch/dist/js/bootstrap-switch.min.js
+//= require Chart.js/dist/Chart.min.js
+//= require matchHeight/jquery.matchHeight-min.js
+//= require select2/dist/js/select2.full.min.js
+//= require datatables/media/js/jquery.dataTables.min.js
+//= require datatables/media/js/dataTables.bootstrap.min.js
+//= require pnotify/dist/pnotify.js
+//= require pnotify/dist/pnotify.buttons.js
+//= require bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.js
+
+/* Theme */
+//= require flat-admin-bootstrap-templates/dist/js/app.js
+
+/* Layout specified */

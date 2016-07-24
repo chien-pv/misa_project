@@ -1,0 +1,36 @@
+.side-menu.sidebar-inverse
+  nav.navbar.navbar-default role="navigation"
+    .side-menu-container
+      .navbar-header
+        a.navbar-brand href="#"
+          img src=asset_path("bn-53857.png") alt="logo" height="60" width="190"
+          .title= current_user.name
+        button.navbar-expand-toggle.pull-right.visible-xs type="button"
+          i.fa.fa-times.icon
+      ul.nav.navbar-nav
+        li.panel.panel-default.dropdown
+          a data-toggle="collapse" href="#dropdown-sr"
+            span.icon.fa.fa-list
+            span.title Quản Lý Gomcon
+          #dropdown-sr.panel-collapse.collapse
+            .panel-body
+              ul.nav.navbar-nav
+                li
+                  a href=purchase_orders_path Danh sách đơn hàng
+                li
+                  a href=show_map_index_path Dữ liệu gom container
+                li
+                  a href=map_order_index_path Gom đơn hàng vào container
+                li
+                  a href=suppliers_items_path Danh sách nhà cung cấp
+                li
+                  a href=input_items_path Nhập khối lượng thể tích cho mặt hàng
+        li.panel.panel-default.dropdown
+          a data-toggle="collapse" href="#dropdown-settings"
+            span.icon.fa.fa-cogs
+            span.title Quản Lý Tài Khoản
+          #dropdown-settings.panel-collapse.collapse
+            .panel-body
+              ul.nav.navbar-nav
+                li
+                  a href="#" Danh Sách Tài Khoản

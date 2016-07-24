@@ -1,0 +1,28 @@
+nav.navbar.navbar-default.navbar-fixed-top.navbar-top
+  .container-fluid
+    .navbar-header
+      button.navbar-expand-toggle[type="button"]
+        i.fa.fa-bars.icon
+      ol.breadcrumb.navbar-breadcrumb
+        li
+          | Something
+        li.active
+          | Here
+      button.navbar-right-expand-toggle.pull-right.visible-xs[type="button"]
+        i.fa.fa-th.icon
+    ul.nav.navbar-nav.navbar-right style= "margin-top: -20px; margin-bottom: -21px;"
+      li.dropdown.profile
+        a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-expanded="false"]
+          img src=asset_path('default-avatar.png')
+          =<> current_user.name
+          span.caret
+        ul.dropdown-menu.animated.fadeInDown
+          li
+            .profile-info
+              h4.username
+                = current_user.name
+              p
+                = current_user.email
+              .btn-group.margin-bottom-2x[role="group"]
+                = link_to 'Edit profile', edit_user_registration_path, class: "btn btn-default"
+                =link_to 'Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default"

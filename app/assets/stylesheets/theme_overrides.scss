@@ -1,0 +1,23 @@
+body {
+  font-size: 14px;
+}
+
+.app-container {
+  .content-container {
+    .side-body {
+      .page-title {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+body.login-page {
+  background: image-url("app-header-bg.jpg") no-repeat center center fixed;
+
+  .login-box {
+    input {
+      border: 1px solid #ccc;
+    }
+  }
+}

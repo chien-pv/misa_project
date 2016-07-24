@@ -1,0 +1,23 @@
+.login-box.form-signin.col-md-4.col-md-offset-5
+  h3.text-center
+    b Đăng Nhập
+  .login-logo style= "height: 20px;"
+  .login-box-body
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      - if flash[:alert]
+        .alert.alert-danger
+          = flash[:alert]
+      .form-group.has-feedback
+        = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"
+        span.glyphicon.glyphicon-envelope.form-control-feedback
+      .form-group.has-feedback
+        = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
+        span.glyphicon.glyphicon-lock.form-control-feedback
+      .row
+        .col-xs-8
+          .checkbox.icheck
+            label
+              = f.check_box :remember_me, class: 'icheck'
+              span Remember Me
+        .col-xs-4
+          button.btn.btn-block.btn-primary.btn-flat type="submit" Login
