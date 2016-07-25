@@ -31,11 +31,11 @@
                   </tr>
                   <tr>
                     <th class="col-md-4">Ngày đơn hàng:</th>
-                    <td> <%=@purchase_order[0].RefDate.strftime("%d-%m-%Y") %></td>
+                    <td> <%=@purchase_order[0].try(:RefDate).try(:strftime, '%d-%m-%Y') %></td>
                   </tr>
                   <tr>
                     <th class="col-md-4" colspan="">Ngày giao hàng: </th>
-                    <td><%=@purchase_order[0].ReceiveDate.strftime("%d-%m-%Y") %></td>
+                    <td><%=@purchase_order[0].try(:ReceiveDate).try(:strftime, "%d-%m-%Y") %></td>
                   </tr>
                   <tr>
                     <th class="col-md-4">Diễn giải: </th>

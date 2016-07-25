@@ -27,13 +27,16 @@
                 <div class="">
             <table style="width:90%;font-size:15px;">
               <tr class="states">
-                <td colspan="3" style="float: left;">
-                <div style="width: 950px" class="alert alert-success">Nhập vào số lượng để tính toán thể tích khối lượng
-                  <span style="float: left;">Số lượng:</span><span class="col-md-3"> <%= number_field_tag 'Pu[][Item][][quantity]', detail_pu.Quantity, class: "form-control quantity margin_top"  %></span></div>
+                <td colspan="" style="float: left;">
+                <div style="width: 123%; height: 50px" class="alert alert-success">Nhập vào số lượng để tính toán thể tích khối lượng
+                  <span style="float: left;">Số lượng:</span><span class="col-md-3"> <%= number_field_tag 'Pu[][Item][][quantity]', 0, class: "form-control quantity margin_top"  %></span></div>
+                  <span class= "canh_bao" style= "color: red;"></span>
                 </td>
               </tr>
               <tr>
                 <%= hidden_field_tag("volume_detail", detail_pu.item.try(:volume), {class: "volume_detail"})%>
+                <%= hidden_field_tag("So_luong",  detail_pu.Quantity, {class: "so_luong"})%>
+                 <%= hidden_field_tag("So_luong_nhan",  detail_pu.QuantityReceipt, {class: "so_luong_nhan"})%>
                 <td colspan="">
                   <div style="height: 50px" class="alert alert-warning">
                   <div style="width: 290%">
@@ -72,13 +75,13 @@
  </div>
 <% end %>
 <div class="col-md-12" style="margin-top: 20px;">
-  <div style="float: right; width: 25%; height: 80px" class="alert alert-success">
-    <div><b class="float_left"> Tổng thể tích: </b><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
-    <div class="" > <b class="float_left"> Tổng khối lượng: </b> <div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
+  <div style="float: right; width: 25%; height: 100px" class="alert alert-success">
+    <div style="text-align: center;"><b> Tổng thể tích(m<sup>3</sup>) </b><br><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
+    <div class="" style="text-align: center;" > <b> Tổng khối lượng(kg) </b> <br><div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
   </div>
-  <div style="float: right; width: 25%; height: 80px" class="alert alert-success">
-    <div><b class="float_left"> Thể tích của container: </b><div style="text-align: center; font-size: 17px" class="thetich_container">64</div></div>
-    <div  > <b class="float_left"> Khối lượng của container: </b> <div style="text-align: center; font-size: 17px"  class=""></div><div class="khoiluong_container">25000</div></div>
+  <div style="float: right; width: 30%; height: 80px" class="alert alert-success">
+    <div><b class="float_left"> Thể tích của container: </b><div style="text-align: center; font-size: 17px" class="thetich_container">65 m<sup>3</sup></div></div>
+    <div  > <b class="float_left"> Khối lượng của container: </b> <div style="" class=""></div><div style=" font-size: 17px; text-align: center;" class="khoiluong_container">25000 kg</div></div>
   </div>
 
   <div style="float: right; width: 44%; height: 80px" class="alert alert-success map">
