@@ -3,33 +3,9 @@ $ ->
   total_weight = 0
   thetich_container = 65
   khoiluong_container = 25000
-  $('.volume').each (index, value) ->
-    volume_dt = parseFloat($(this).text())
-    total_volume += volume_dt
-  $(".the_tich").text(total_volume)
-  if thetich_container > total_volume
-    $(".map_thetich").text("Thể tích đạt yêu cầu")
-    $(".map").removeClass("alert-danger").addClass( "alert-success" )
-  if thetich_container == total_volume
-    $(".map_thetich").text("Thể tích đạt yêu cầu")
-    $(".map").removeClass("alert-danger").addClass( "alert-success" )
-  if thetich_container < total_volume
-    $(".map_thetich").text("Thể tích vượt quá mức cho phép")
-    $(".map_thetich").removeClass("alert-success").addClass( "alert-danger" )
-    $(".map").removeClass("alert-success").addClass( "alert-danger" )
-  $('.weight').each (index, value) ->
-    weight_dt = parseFloat($(this).text())
-    total_weight += weight_dt
-  $(".khoi_luong").text(total_weight)
-  if khoiluong_container > total_weight
-    $(".map_khoiluong").text("Khối lượng đạt yêu cầu")
-    $(".map").removeClass("alert-danger").addClass( "alert-success" )
-  if khoiluong_container == total_weight
-    $(".map_khoiluong").text("Khối lượng đạt yêu cầu")
-    $(".map").removeClass("alert-danger").addClass( "alert-success" )
-  if khoiluong_container < total_weight
-    $(".map_khoiluong").text("Khối lượng vượt quá mức cho phép")
-    $(".map").removeClass("alert-success").addClass( "alert-danger" )
+
+  $(".map_thetich").text("Thể tích đạt yêu cầu")
+  $(".map_khoiluong").text("Khối lượng đạt yêu cầu")
 
   $('.quantity').click ->
     quantity = $(this).val()
@@ -87,7 +63,7 @@ $ ->
       $(".map_khoiluong").text("Khối lượng vượt quá mức cho phép")
       $(".map").removeClass("alert-success").addClass( "alert-danger" )
       $(".map_khoiluong").removeClass("alert-success").addClass( "alert-danger" )
-      
+
   $('.quantity').keyup ->
     quantity = $(this).val()
     row = $(this).closest('tr')

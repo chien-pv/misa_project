@@ -26,6 +26,9 @@
               <div class="panel-body">
                 <div class="">
             <table style="width:90%;font-size:15px;">
+              <tr>
+                <td>Số lượng trong đơn hàng: &nbsp;<%= detail_pu.Quantity%></td>
+              </tr>
               <tr class="states">
                 <td colspan="" style="float: left;">
                 <div style="width: 123%; height: 50px" class="alert alert-success">Nhập vào số lượng để tính toán thể tích khối lượng
@@ -36,7 +39,7 @@
               <tr>
                 <%= hidden_field_tag("volume_detail", detail_pu.item.try(:volume), {class: "volume_detail"})%>
                 <%= hidden_field_tag("So_luong",  detail_pu.Quantity, {class: "so_luong"})%>
-                 <%= hidden_field_tag("So_luong_nhan",  detail_pu.QuantityReceipt, {class: "so_luong_nhan"})%>
+                <%= hidden_field_tag("So_luong_nhan",  detail_pu.QuantityReceipt, {class: "so_luong_nhan"})%>
                 <td colspan="">
                   <div style="height: 50px" class="alert alert-warning">
                   <div style="width: 290%">
