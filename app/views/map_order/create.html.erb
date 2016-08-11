@@ -3,7 +3,7 @@
   <div class="page-header">
     <h3 align="center">CHI TIẾT ĐƠN HÀNG</h3>
   </div>
-  <%= form_tag creates_map_order_index_path do %>
+  <%= form_tag creates_map_order_index_path, remote: true, authenticity_token: true do %>
   <div class="panel panel-primary">
     <div class="panel-heading">Chi tiết đơn hàng</div>
       <div class="panel-body" style="max-height: 300px;overflow-y: scroll;">
@@ -74,8 +74,9 @@
      <div class=" col-md-4 float_left">
     <%= text_field_tag("name","", required: true , class: "form-control ")%>
     </div>
-<%= submit_tag "Save", class: "btn btn-primary float_left", data: { confirm: "Are you sure?" } %>
+    <%= submit_tag "Save", class: "btn btn-primary float_left", data: { confirm: "Are you sure?" } %>
  </div>
+<div class="text-error-name"></div>
 <% end %>
 <div class="col-md-12" style="margin-top: 20px;">
   <div style="float: right; width: 25%; height: 100px" class="alert alert-success">

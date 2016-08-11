@@ -86,14 +86,18 @@
   </div>
 <% end %>
 </div>
-<div style="float: right; width: 250px" class="alert alert-success">
-  <div><b class="float_left"> Tổng thể tích: </b><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
-  <div class="" > <b class="float_left"> Tổng khối lượng: </b> <div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
-</div>
-<div style="float: right; width: 250px" class="alert alert-success">
-  <div><b class="float_left"> Thể tích của container: </b><div style="text-align: center; font-size: 17px" class="thetich_container">2700</div></div>
-  <div class="khoiluong_container" > <b class="float_left"> Khối lượng của container: </b> <div style="text-align: center; font-size: 17px"  class=""></div>1700</div>
-</div>
+<div class="col-md-12" style="margin-top: 20px;">
+  <div style="float: right; width: 25%; height: 100px" class="alert alert-success">
+    <div style="text-align: center;"><b> Tổng thể tích(m<sup>3</sup>) </b><br><div style="text-align: center; font-size: 17px" class="the_tich"></div></div>
+    <div class="" style="text-align: center;" > <b> Tổng khối lượng(kg) </b> <br><div style="text-align: center; font-size: 17px"  class="khoi_luong"></div></div>
   </div>
-  <center style="margin-top: 10px; margin-bottom: 15px;"><%= link_to "Export", export_index_path(format: :xlsx, params: {list_map: params[:list_map] }), class: "btn btn-primary", onclick: "location"%></center>
+  <div style="float: right; width: 30%; height: 80px" class="alert alert-success">
+    <div><b class="float_left"> Thể tích của container: </b><div style="text-align: center; font-size: 17px" class="thetich_container">65 m<sup>3</sup></div></div>
+    <div  > <b class="float_left"> Khối lượng của container: </b> <div style="" class=""></div><div style=" font-size: 17px; text-align: center;" class="khoiluong_container">25000 kg</div></div>
+  </div>
+</div>
+  <center style="margin-top: 10px; margin-bottom: 15px;">
+  <%= link_to "Export", export_index_path(format: :xlsx, params: {list_map: params[:list_map] }), class: "btn btn-primary", onclick: "location"%>
+  <%= link_to "Delete", delete_map_order_show_map_index_path(params: {list_map: @list_order.map(&:id) }), class: "btn btn-primary",  data: { confirm: "Are you sure?" }%>
+  </center>
 </section>

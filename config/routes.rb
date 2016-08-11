@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {registrations: 'registrations'}
 
-  resources :show_map
+  resources :show_map do
+    collection do
+      get :delete_map_order
+    end
+  end
     
 
   resources :items do
