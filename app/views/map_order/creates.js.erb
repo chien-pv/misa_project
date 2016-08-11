@@ -1,4 +1,5 @@
 <% if flash[:alert].present? %>
+  $('.text-error-name .text-danger').remove();
   $('.text-error-name').append('<span class= "text-danger"><b><%= flash[:alert] %></b></span>');
 <% else %>
   document.location.href = '/map_order';

@@ -14,11 +14,15 @@ class MapOrderController < ApplicationController
     if MapPurchase.where(map_id: params[:name]).present?
       flash.now[:alert] = "Tên đã tồn tại trong dữ liệu gom con. Hãy nhập lại tên để lưu."
     else
-      params[:Pu].each do |pu|
-        MapPurchase.create(map_id: params[:name] , RefID: pu[:RefID], date_map: Time.now.strftime("%Y-%d-%m %H:%M:%S %Z"))
-        pu[:Item].each do |item|
-          MapItem.create(ItemID: item[:InventoryItemID], map_purchase_id: MapPurchase.find_by(RefID: pu[:RefID], map_id: params[:name]).id, quantity: item[:quantity]  )
+      if params[:name].present?
+        params[:Pu].each do |pu|
+          MapPurchase.create(map_id: params[:name] , RefID: pu[:RefID], date_map: Time.now.strftime("%Y-%d-%m %H:%M:%S %Z"))
+          pu[:Item].each do |item|
+            MapItem.create(ItemID: item[:InventoryItemID], map_purchase_id: MapPurchase.find_by(RefID: pu[:RefID], map_id: params[:name]).id, quantity: item[:quantity]  )
+          end
         end
+      else
+        flash.now[:alert] = "Tên không được là ký tự trắng. Hãy nhập lại tên để lưu."
       end
     end
   end
